@@ -1,0 +1,171 @@
+---
+import type { FlagshipProject } from '../data/projects';
+
+interface Props {
+	project: FlagshipProject;
+}
+
+const { project } = Astro.props;
+const titleId = `project-${project.diagram}-title`;
+const diagramTitleId = `${project.diagram}-diagram-title`;
+const diagramDescriptionId = `${project.diagram}-diagram-description`;
+---
+
+<article
+	class:list={['flagship-card', `flagship-card--${project.diagram}`]}
+	tabindex="0"
+	aria-labelledby={titleId}
+>
+	<div class="flagship-card__topline">
+		<span>{project.number} / Primary project</span>
+		<span>{project.institution}</span>
+	</div>
+
+	<div class="flagship-card__heading">
+		<h3 id={titleId}>{project.title}</h3>
+		<p>{project.descriptor}</p>
+	</div>
+
+	<p class="flagship-card__description">{project.description}</p>
+
+	<div class="technical-diagram" aria-label={`${project.title} simplified technical pipeline`}>
+		{project.diagram === 'audio' ? (
+			<svg
+				class="technical-diagram__svg"
+				viewBox="0 0 640 500"
+				role="img"
+				aria-labelledby={`${diagramTitleId} ${diagramDescriptionId}`}
+			>
+				<title id={diagramTitleId}>Neural Audio Tokenization pipeline</title>
+				<desc id={diagramDescriptionId}>SSL semantic features and acoustic features are fused into a shared representation, then split into semantic and acoustic branches. The semantic branch pools from 50 to 25 hertz before projection and finite scalar quantization, while the acoustic branch remains at 50 hertz.</desc>
+				<defs>
+					<marker id="audio-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+						<path d="M0,0 L7,3.5 L0,7 Z" class="diagram-arrowhead" />
+					</marker>
+				</defs>
+
+				<path class="diagram-edge diagram-edge--step-1" d="M170 72C170 91 286 82 306 102" marker-end="url(#audio-arrow)" />
+				<path class="diagram-edge diagram-edge--step-1" d="M470 72C470 91 354 82 334 102" marker-end="url(#audio-arrow)" />
+				<path class="diagram-edge diagram-edge--step-2" d="M320 150V176" marker-end="url(#audio-arrow)" />
+				<path class="diagram-edge diagram-edge--step-3" d="M320 228V258" marker-end="url(#audio-arrow)" />
+				<path class="diagram-edge diagram-edge--semantic" d="M320 304C320 324 170 316 170 336" marker-end="url(#audio-arrow)" />
+				<path class="diagram-edge diagram-edge--acoustic" d="M320 304C320 324 470 316 470 336" marker-end="url(#audio-arrow)" />
+				<path class="diagram-edge diagram-edge--semantic" d="M170 432V454" marker-end="url(#audio-arrow)" />
+				<path class="diagram-edge diagram-edge--acoustic" d="M470 432V454" marker-end="url(#audio-arrow)" />
+
+				<g class="diagram-node diagram-node--step-1">
+					<rect x="30" y="12" width="280" height="60" rx="4" />
+					<text x="170" y="48">SSL / Semantic Features</text>
+				</g>
+				<g class="diagram-node diagram-node--acoustic diagram-node--step-1">
+					<rect x="330" y="12" width="280" height="60" rx="4" />
+					<text x="470" y="48">Acoustic Features</text>
+				</g>
+				<g class="diagram-node diagram-node--step-2">
+					<rect x="245" y="102" width="150" height="48" rx="4" />
+					<text x="320" y="132">Fusion</text>
+				</g>
+				<g class="diagram-node diagram-node--step-3">
+					<rect x="190" y="176" width="260" height="52" rx="4" />
+					<text x="320" y="208">Shared Representation</text>
+				</g>
+				<g class="diagram-node diagram-node--step-4">
+					<rect x="265" y="258" width="110" height="46" rx="4" />
+					<text x="320" y="286">Split</text>
+				</g>
+				<g class="diagram-node diagram-node--semantic diagram-node--step-5">
+					<rect x="30" y="336" width="280" height="96" rx="4" />
+					<text x="170" y="361">Semantic branch</text>
+					<text class="diagram-node__detail" x="170" y="383">Pool 50 → 25 Hz</text>
+					<text class="diagram-node__detail" x="170" y="404">Projector</text>
+					<text class="diagram-node__detail" x="170" y="425">FSQ</text>
+				</g>
+				<g class="diagram-node diagram-node--acoustic diagram-node--step-5">
+					<rect x="330" y="336" width="280" height="96" rx="4" />
+					<text x="470" y="361">Acoustic branch</text>
+					<text class="diagram-node__detail" x="470" y="383">50 Hz direct</text>
+					<text class="diagram-node__detail" x="470" y="404">Projector</text>
+					<text class="diagram-node__detail" x="470" y="425">FSQ</text>
+				</g>
+				<g class="diagram-node diagram-node--semantic diagram-node--token diagram-node--step-6">
+					<rect x="60" y="454" width="220" height="40" rx="4" />
+					<text x="170" y="480">Semantic Tokens</text>
+				</g>
+				<g class="diagram-node diagram-node--acoustic diagram-node--token diagram-node--step-7">
+					<rect x="360" y="454" width="220" height="40" rx="4" />
+					<text x="470" y="480">Acoustic Tokens</text>
+				</g>
+			</svg>
+		) : (
+			<svg
+				class="technical-diagram__svg"
+				viewBox="0 0 640 500"
+				role="img"
+				aria-labelledby={`${diagramTitleId} ${diagramDescriptionId}`}
+			>
+				<title id={diagramTitleId}>Cognitive-Breath pipeline</title>
+				<desc id={diagramDescriptionId}>Synchronized contact-microphone signals are preprocessed into respiratory features for a cross-user model, followed by online normalization, optional personalization, and a real-time probability estimate.</desc>
+				<defs>
+					<marker id="breath-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+						<path d="M0,0 L7,3.5 L0,7 Z" class="diagram-arrowhead" />
+					</marker>
+				</defs>
+
+				<path class="diagram-edge diagram-edge--step-1" d="M320 76V102" marker-end="url(#breath-arrow)" />
+				<path class="diagram-edge diagram-edge--step-2" d="M320 154V182" marker-end="url(#breath-arrow)" />
+				<path class="diagram-edge diagram-edge--step-3" d="M320 234V262" marker-end="url(#breath-arrow)" />
+				<path class="diagram-edge diagram-edge--step-4" d="M320 314C320 334 180 329 180 352" marker-end="url(#breath-arrow)" />
+				<path class="diagram-edge diagram-edge--optional" d="M290 378H350" marker-end="url(#breath-arrow)" />
+				<path class="diagram-edge diagram-edge--step-5" d="M180 404C180 427 282 417 310 438" marker-end="url(#breath-arrow)" />
+				<path class="diagram-edge diagram-edge--optional" d="M460 404C460 427 358 417 330 438" marker-end="url(#breath-arrow)" />
+
+				<g class="diagram-node diagram-node--signal diagram-node--step-1">
+					<rect x="170" y="12" width="300" height="64" rx="4" />
+					<text x="320" y="34">Nose-pad microphones</text>
+					<path class="breath-waveform" d="M236 57C248 57 248 44 260 44S272 65 284 65 296 48 308 48 320 60 332 60 344 43 356 43 368 57 380 57 392 50 404 50" />
+				</g>
+				<g class="diagram-node diagram-node--step-2">
+					<rect x="135" y="102" width="370" height="52" rx="4" />
+					<text x="320" y="124">Signal preprocessing</text>
+					<text class="diagram-node__detail" x="320" y="142">24 kHz sync · band-pass · envelopes</text>
+				</g>
+				<g class="diagram-node diagram-node--features diagram-node--step-3">
+					<rect x="135" y="182" width="370" height="52" rx="4" />
+					<text x="320" y="204">Respiratory features</text>
+					<text class="diagram-node__detail" x="320" y="222">Cycle · rhythm · amplitude · bilateral</text>
+				</g>
+				<g class="diagram-node diagram-node--model diagram-node--step-4">
+					<rect x="205" y="262" width="230" height="52" rx="4" />
+					<text x="320" y="292">Cross-user model</text>
+				</g>
+				<g class="diagram-node diagram-node--normalization diagram-node--step-5">
+					<rect x="70" y="352" width="220" height="52" rx="4" />
+					<text x="180" y="382">Online normalization</text>
+				</g>
+				<g class="diagram-node diagram-node--optional diagram-node--step-6">
+					<rect x="350" y="352" width="220" height="52" rx="4" />
+					<text x="460" y="374">Optional personalization</text>
+					<text class="diagram-node__detail" x="460" y="392">user-specific calibration</text>
+				</g>
+				<g class="diagram-node diagram-node--output diagram-node--step-7">
+					<rect x="205" y="438" width="230" height="49" rx="4" />
+					<text x="320" y="468">Real-time probability</text>
+				</g>
+			</svg>
+		)}
+		{project.diagram === 'audio' && <p class="technical-diagram__note">FSQ: finite scalar quantization.</p>}
+	</div>
+
+	<dl class="flagship-card__fields">
+		{project.fields.map((field) => (
+			<div>
+				<dt>{field.label}</dt>
+				<dd>{field.text}</dd>
+			</div>
+		))}
+	</dl>
+
+	<ul class="tag-list tag-list--dark" aria-label={`${project.title} topics`}>
+		{project.keywords.map((keyword) => <li>{keyword}</li>)}
+	</ul>
+</article>

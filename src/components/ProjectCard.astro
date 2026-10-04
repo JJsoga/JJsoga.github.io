@@ -1,0 +1,29 @@
+---
+import type { CurrentProject } from '../data/projects';
+
+interface Props {
+	project: CurrentProject;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="current-project-card">
+	<div class="project-card__topline">
+		<span class="project-card__number" aria-hidden="true">{project.number}</span>
+		<div class="project-card__meta">
+			<span class="project-card__status project-card__status--current">{project.status}</span>
+			<span class="project-card__institution">{project.institution}</span>
+		</div>
+	</div>
+	<div class="project-card__body">
+		<p class="project-card__eyebrow">{project.summary}</p>
+		<h3>{project.title}</h3>
+		<p class="project-card__description">{project.detail}</p>
+	</div>
+	<div class="project-card__footer">
+		<ul class="tag-list" aria-label={`${project.title} topics`}>
+			{project.keywords.map((keyword) => <li>{keyword}</li>)}
+		</ul>
+	</div>
+</article>
