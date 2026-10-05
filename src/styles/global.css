@@ -55,6 +55,12 @@
 		color-scheme: light;
 	}
 
+	html:lang(zh) {
+		--sans: "LXGW WenKai", "PingFang SC", "Microsoft YaHei", sans-serif;
+		--serif: "LXGW WenKai", "STKaiti", "KaiTi", serif;
+		--mono: "LXGW WenKai", "PingFang SC", "Microsoft YaHei", monospace;
+	}
+
 	html {
 		scroll-behavior: smooth;
 		background: var(--paper);
@@ -69,6 +75,10 @@
 		line-height: 1.6;
 		-webkit-font-smoothing: antialiased;
 		text-rendering: optimizeLegibility;
+	}
+
+	html:lang(zh) body {
+		line-height: 1.75;
 	}
 
 	::selection {
@@ -126,6 +136,13 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
+	}
+
+	.header-controls {
+		display: flex;
+		min-width: 0;
+		align-items: center;
+		gap: clamp(1rem, 2.5vw, 2rem);
 	}
 
 	.brand {
@@ -188,6 +205,26 @@
 		transform-origin: left;
 	}
 
+	.language-switch {
+		display: inline-flex;
+		min-width: 2.9rem;
+		min-height: 2.75rem;
+		padding-left: clamp(0.85rem, 2vw, 1.35rem);
+		align-items: center;
+		justify-content: flex-end;
+		border-left: 1px solid var(--rule);
+		color: var(--accent);
+		font-family: var(--mono);
+		font-size: 0.76rem;
+		font-weight: 650;
+		letter-spacing: 0.04em;
+		transition: color 160ms ease;
+	}
+
+	.language-switch:hover {
+		color: var(--ink);
+	}
+
 	.hero {
 		position: relative;
 		display: flex;
@@ -227,6 +264,12 @@
 		line-height: 0.82;
 	}
 
+	html:lang(zh) .hero h1 {
+		max-width: none;
+		letter-spacing: 0.035em;
+		line-height: 0.95;
+	}
+
 	.hero__headline {
 		max-width: 54rem;
 		margin-top: clamp(1.75rem, 4vw, 3rem);
@@ -235,6 +278,11 @@
 		font-size: clamp(1.45rem, 3vw, 2.35rem);
 		letter-spacing: -0.025em;
 		line-height: 1.25;
+	}
+
+	html:lang(zh) .hero__headline {
+		letter-spacing: 0.015em;
+		line-height: 1.45;
 	}
 
 	.hero__bio {
@@ -429,6 +477,14 @@
 		font-weight: 400;
 		letter-spacing: -0.055em;
 		line-height: 0.95;
+	}
+
+	html:lang(zh) .flagship-card__heading h3,
+	html:lang(zh) .current-project-card h3,
+	html:lang(zh) .education-card h3,
+	html:lang(zh) .award-list strong {
+		letter-spacing: 0.02em;
+		line-height: 1.2;
 	}
 
 	.flagship-card__heading p {
@@ -1051,6 +1107,12 @@
 		gap: 1rem;
 	}
 
+	.header-controls {
+		flex: 1;
+		justify-content: flex-end;
+		gap: 0.7rem;
+	}
+
 	.brand-name {
 		display: none;
 	}
@@ -1068,12 +1130,18 @@
 		gap: 1rem;
 	}
 
-	.primary-nav li:nth-child(3) {
+	.primary-nav .nav-item--secondary {
 		display: none;
 	}
 
 	.primary-nav a {
 		font-size: 0.76rem;
+	}
+
+	.language-switch {
+		min-width: 2.4rem;
+		padding-left: 0.7rem;
+		font-size: 0.7rem;
 	}
 
 	.hero {
@@ -1083,6 +1151,10 @@
 
 	.hero h1 {
 		font-size: clamp(4rem, 22vw, 6.5rem);
+	}
+
+	html:lang(zh) .hero h1 {
+		font-size: clamp(3.8rem, 20vw, 6rem);
 	}
 
 	.hero__headline {

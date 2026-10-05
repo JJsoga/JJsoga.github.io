@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FlagshipProjectCard from './FlagshipProjectCard.astro';
+import ProjectCard from './ProjectCard.astro';
+import { profileContentByLocale, type SiteLocale } from '../data/profile';
+import { projectContentByLocale } from '../data/projects';
+
+interface Props {
+	locale: SiteLocale;
+}
+
+const { locale } = Astro.props;
+const content = profileContentByLocale[locale];
+const projects = projectContentByLocale[locale];
+const currentYear = new Date().getFullYear();
+---
+
+<BaseLayout
+	title={content.metadata.title}
+	description={content.metadata.description}
+	lang={content.documentLang}
+	skipLinkText={content.labels.skipLink}
+	socialImageAlt={content.metadata.socialImageAlt}
+	siteName={content.profile.name}
+>
+	<header class="site-header">
+		<div class="nav-shell">
+			<a class="brand" href="#top" aria-label={content.labels.brandAria}>
+				<span class="brand-mark" aria-hidden="true">{content.profile.initials}</span>
+				<span class="brand-name">{content.profile.name}</span>
+			</a>
+			<div class="header-controls">
+				<nav class="primary-nav" aria-label={content.labels.navigationAria}>
+					<ul>
+						{content.navigation.map((item, index) => (
+							<li class:list={[index === 2 && 'nav-item--secondary']}>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))}
+					</ul>
+				</nav>
+				<a
+					class="language-switch"
+					href={content.languageSwitch.href}
+					hreflang={content.languageSwitch.hreflang}
+					lang={content.languageSwitch.lang}
+					aria-label={content.languageSwitch.label}
+				>{content.languageSwitch.shortLabel}</a>
+			</div>
+		</div>
+	</header>
+
+	<main id="main-content">
+		<section class="hero" id="top" aria-labelledby="hero-title">
+			<div class="hero__inner">
+				<div class="hero__copy">
+					<h1 id="hero-title">{content.profile.name}</h1>
+					<p class="hero__headline">{content.profile.headline}</p>
+					<p class="hero__bio">{content.profile.bio}</p>
+					<ul class="hero__facts" aria-label={content.labels.academicStandingAria}>
+						<li><strong>{content.profile.education.gpa}</strong></li>
+						<li><strong>{content.profile.education.rank}</strong></li>
+						<li><span>{content.profile.university} · {content.profile.education.period}</span></li>
+					</ul>
+					<div class="hero__actions" aria-label={content.labels.profileLinksAria}>
+						{content.profile.links.map((link, index) => (
+							<a
+								class:list={['button', index > 0 && 'button--secondary']}
+								href={link.href}
+								target={link.external ? '_blank' : undefined}
+								rel={link.external ? 'noreferrer' : undefined}
+							>
+								{link.label} <span aria-hidden="true">↗</span>
+							</a>
+						))}
+					</div>
+				</div>
+			</div>
+			<a class="scroll-cue" href="#work">
+				<span>{content.labels.scrollCue}</span>
+				<span aria-hidden="true">↓</span>
+			</a>
+		</section>
+
+		<section class="section work" id="work" aria-labelledby="work-title">
+			<h2 class="section-kicker section-label" id="work-title">{content.labels.workSection}</h2>
+			<div class="flagship-grid">
+				{projects.flagshipProjects.map((project) => (
+					<FlagshipProjectCard
+						project={project}
+						primaryLabel={content.labels.primaryProject}
+						topicsLabel={content.labels.projectTopics}
+					/>
+				))}
+			</div>
+			<ProjectCard project={projects.currentProject} topicsLabel={content.labels.projectTopics} />
+		</section>
+
+		<section class="section education" id="education" aria-labelledby="education-title">
+			<h2 class="section-kicker section-label" id="education-title">{content.labels.educationSection}</h2>
+			<div class="education-group">
+				<article class="education-card">
+					<div>
+						<p class="education-card__period">{content.profile.university} · {content.profile.education.period}</p>
+						<h3>{content.profile.program}</h3>
+					</div>
+					<div class="education-card__standing">
+						<span>{content.labels.academicStanding}</span>
+						<div>
+							<strong>{content.profile.education.gpa}</strong>
+							<strong>{content.profile.education.rank}</strong>
+						</div>
+					</div>
+				</article>
+				<div class="coursework-panel">
+					<p class="coursework-label">{content.labels.selectedCoursework}</p>
+					<div class="coursework-groups">
+						{content.courseworkGroups.map((group, index) => {
+							const courseId = `coursework-${locale}-${index + 1}`;
+							return (
+								<section class="coursework-group" aria-labelledby={courseId}>
+									<h3 id={courseId}>{group.label}</h3>
+									<ul>
+										{group.courses.map((course) => <li>{course}</li>)}
+									</ul>
+								</section>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section awards" id="awards" aria-labelledby="awards-title">
+			<h2 class="section-kicker section-label" id="awards-title">{content.labels.awardsSection}</h2>
+			<ul class="award-list">
+				{content.awards.map((award) => <li><strong>{award}</strong></li>)}
+			</ul>
+		</section>
+
+		<section class="contact" id="contact" aria-labelledby="contact-title">
+			<div class="contact__inner">
+				<div class="contact__intro">
+					<h2 class="section-kicker section-kicker--light" id="contact-title">{content.labels.contactSection}</h2>
+					<p>{content.labels.contactCopy}</p>
+				</div>
+				<div class="contact-links" aria-label={content.labels.contactLinksAria}>
+					{content.profile.links.map((link) => (
+						<a
+							href={link.href}
+							target={link.external ? '_blank' : undefined}
+							rel={link.external ? 'noreferrer' : undefined}
+						>
+							{link.label}<span aria-hidden="true">↗</span>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div>
+			<p>© {currentYear} {content.profile.name}</p>
+			<p>{content.profile.university}</p>
+			<a href="#top">{content.labels.backToTop} <span aria-hidden="true">↑</span></a>
+		</div>
+	</footer>
+</BaseLayout>

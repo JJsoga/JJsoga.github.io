@@ -3,9 +3,10 @@ import type { CurrentProject } from '../data/projects';
 
 interface Props {
 	project: CurrentProject;
+	topicsLabel: string;
 }
 
-const { project } = Astro.props;
+const { project, topicsLabel } = Astro.props;
 ---
 
 <article class="current-project-card">
@@ -22,7 +23,7 @@ const { project } = Astro.props;
 		<p class="project-card__description">{project.detail}</p>
 	</div>
 	<div class="project-card__footer">
-		<ul class="tag-list" aria-label={`${project.title} topics`}>
+		<ul class="tag-list" aria-label={`${project.title} ${topicsLabel}`}>
 			{project.keywords.map((keyword) => <li>{keyword}</li>)}
 		</ul>
 	</div>
