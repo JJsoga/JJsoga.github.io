@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import lxgwWenKaiRegular from 'lxgw-wenkai-webfont/lxgwwenkai-regular.css?url';
+import lxgwWenKaiBold from 'lxgw-wenkai-webfont/lxgwwenkai-bold.css?url';
 
 interface Props {
 	title: string;
@@ -42,9 +44,8 @@ const isChinese = lang === 'zh-CN';
 		<link rel="alternate" hreflang="x-default" href={englishURL} />
 		{isChinese && (
 			<>
-				<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
-				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css" />
-				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-bold.css" />
+				<link rel="stylesheet" href={lxgwWenKaiRegular} />
+				<link rel="stylesheet" href={lxgwWenKaiBold} />
 			</>
 		)}
 		<title>{title}</title>

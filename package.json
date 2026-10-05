@@ -12,7 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.5"
+    "astro": "^7.3.5",
+    "lxgw-wenkai-webfont": "1.7.0"
   },
   "allowScripts": {
     "esbuild": true
