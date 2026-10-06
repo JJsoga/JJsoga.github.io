@@ -62,7 +62,6 @@ export const profileContentByLocale = {
 		awards: [
 			'Academic Excellence Scholarship',
 			'Merit Scholarship',
-			'MCM/ICM Successful Participant (S Award)',
 			'Silver Award, Tsinghua Summer Social Practice Team (Team Captain)',
 		],
 		navigation: [
@@ -145,7 +144,6 @@ export const profileContentByLocale = {
 		awards: [
 			'学业优秀奖学金',
 			'综合优秀奖学金',
-			'美国大学生数学建模竞赛 S 奖',
 			'清华大学暑期社会实践支队银奖（支队长）',
 		],
 		navigation: [
