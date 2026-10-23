@@ -17,4 +17,16 @@ export const PLAY_CONFIG = Object.freeze({
   maxDeltaSeconds: 1 / 30,
   settleDistance: 0.08,
   settleSpeed: 1.2,
+  trail: Object.freeze({
+    enabled: true,
+    maxParticles: 96,
+    maxEmissionsPerMove: 12,
+    lifetimeSeconds: 0.55,
+    driftSpeed: 22,
+    minSpacing: 5,
+    maxSpacing: 10,
+    minRadius: 1.4,
+    maxRadius: 3.2,
+    speedLimit: 1600,
+  }),
 });

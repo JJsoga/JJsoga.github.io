@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { siteBrand, websiteSchema } from '../data/site';
 import lxgwWenKaiRegular from 'lxgw-wenkai-webfont/lxgwwenkai-regular.css?url';
 import lxgwWenKaiBold from 'lxgw-wenkai-webfont/lxgwwenkai-bold.css?url';
 
@@ -9,7 +10,7 @@ interface Props {
 	lang?: 'en' | 'zh-CN';
 	skipLinkText?: string;
 	socialImageAlt: string;
-	siteName: string;
+	isHomepage?: boolean;
 	translatedPage?: boolean;
 }
 
@@ -19,7 +20,7 @@ const {
 	lang = 'en',
 	skipLinkText = 'Skip to content',
 	socialImageAlt,
-	siteName,
+	isHomepage = false,
 	translatedPage = true,
 } = Astro.props;
 const basePath = import.meta.env.BASE_URL;
@@ -39,7 +40,8 @@ const isChinese = lang === 'zh-CN';
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#f5f5f1" />
-		<link rel="icon" type="image/svg+xml" href={`${assetBase}favicon.svg`} />
+		<link rel="icon" type="image/svg+xml" sizes="any" href={`${assetBase}favicon.svg`} />
+		<link rel="icon" type="image/png" sizes="96x96" href={`${assetBase}favicon.png`} />
 		<link rel="canonical" href={canonicalURL} />
 		{translatedPage && (
 			<>
@@ -55,6 +57,7 @@ const isChinese = lang === 'zh-CN';
 			</>
 		)}
 		<title>{title}</title>
+		{isHomepage && <script type="application/ld+json" set:html={JSON.stringify(websiteSchema).replace(/</g, '\\u003c')} />}
 
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content={isChinese ? 'zh_CN' : 'en_US'} />
@@ -62,7 +65,7 @@ const isChinese = lang === 'zh-CN';
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:site_name" content={siteName} />
+		<meta property="og:site_name" content={siteBrand.name} />
 		<meta property="og:image" content={socialImageURL} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />

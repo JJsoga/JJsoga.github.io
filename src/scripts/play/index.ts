@@ -2,6 +2,7 @@ import { PLAY_CONFIG } from './config';
 import { regroupScene, resetScene, scatterScene, stepScene, throwScene, translateScene } from './behaviors';
 import { bindInput } from './input';
 import { PlayRenderer } from './renderer';
+import { breakTrail, clearTrail, createTrailState, emitTrail, stepTrail } from './trails';
 import type { BehaviorSettings, Mode, Pointer, Sample } from './types';
 
 const HELP: Record<Mode, string> = {
@@ -21,12 +22,16 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
   const controls = find<HTMLFieldSetElement>('[data-play-controls]');
   const sampleSelect = find<HTMLSelectElement>('[data-play-sample]');
   const strength = find<HTMLInputElement>('[data-play-strength]');
+  const trailToggle = find<HTMLInputElement>('[data-play-trail]');
   const force = find<HTMLSelectElement>('[data-play-force]');
   const status = find('[data-play-status]');
   const enabledModes = options.enabledModes?.length ? options.enabledModes : PLAY_CONFIG.enabledModes;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const settings: BehaviorSettings = { mode: enabledModes[0], strength: 1, force: 'repel', reducedMotion: reduced.matches };
   const pointer: Pointer = { x: 0, y: 0, active: false };
+  const trail = createTrailState();
+  let trailEnabled: boolean = PLAY_CONFIG.trail.enabled;
+  let trailSource: 'pointer' | 'keyboard' | null = null;
   const images = new Map<Sample, HTMLImageElement>();
   const pendingImages = new Map<Sample, Promise<HTMLImageElement>>();
   const listeners = new AbortController();
@@ -45,7 +50,7 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
   const draw = () => {
     canvas.dataset.grabbing = String(scene.grabbed);
     renderer.draw(scene, images.get(sample), pointer,
-      settings.mode === 'grab' ? 12 : PLAY_CONFIG.interactionRadius);
+      settings.mode === 'grab' ? 12 : PLAY_CONFIG.interactionRadius, trail.particles);
   };
   const stop = () => {
     cancelAnimationFrame(frame);
@@ -58,9 +63,12 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
     const dt = lastTime ? (time - lastTime) / 1000 : 1 / 60;
     lastTime = time;
     const moving = stepScene(scene, pointer, settings, dt);
+    const trailing = stepTrail(trail, dt);
     draw();
     // Hard bound per input even if future effects fail to converge.
-    if (moving && !settings.reducedMotion && --framesRemaining > 0) frame = requestAnimationFrame(tick);
+    if (!settings.reducedMotion && ((moving && --framesRemaining > 0) || trailing)) {
+      frame = requestAnimationFrame(tick);
+    }
     else lastTime = 0;
   };
   const wake = () => {
@@ -68,6 +76,7 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
     framesRemaining = 600;
     if (settings.reducedMotion) {
       stop();
+      clearTrail(trail);
       stepScene(scene, pointer, settings, 0);
       draw();
     } else if (!frame) frame = requestAnimationFrame(tick);
@@ -76,6 +85,8 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
     const wasGrabbed = scene.grabbed;
     scene.grabbed = false;
     pointer.active = false;
+    clearTrail(trail);
+    trailSource = null;
     for (const particle of scene.particles) particle.vx = particle.vy = 0;
     if (wasGrabbed) announce('Gesture cancelled. The sample has stopped; grab it again or reset.');
     wake();
@@ -87,6 +98,9 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
       radio.checked = radio.value === settings.mode;
     }
     strength.value = String(settings.strength);
+    trailToggle.checked = trailEnabled;
+    trailToggle.disabled = settings.reducedMotion;
+    find('[data-play-trail-note]').hidden = !settings.reducedMotion;
     find<HTMLOutputElement>('[data-play-strength-value]').textContent = `${settings.strength.toFixed(2).replace(/0$/, '')}×`;
     force.value = settings.force;
     find('[data-play-scatter-controls]').hidden = settings.mode !== 'scatter';
@@ -104,13 +118,23 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
     announce('Reset. Every piece is back in place. Your chosen sample, mode and strength are unchanged.');
   };
   const input = bindInput(canvas, {
-    move(point, delta) {
+    move(point, delta, movement) {
       Object.assign(pointer, point, { active: true });
       if (scene.grabbed) translateScene(scene, delta.x, delta.y);
+      if (trailEnabled && !settings.reducedMotion && visible && !document.hidden) {
+        if (trailSource !== movement.source) breakTrail(trail);
+        trailSource = movement.source;
+        emitTrail(trail, point, movement.elapsedSeconds, scene);
+      }
       wake();
     },
-    start(point) {
+    start(point, source) {
       Object.assign(pointer, point, { active: true });
+      breakTrail(trail);
+      trailSource = source;
+      if (trailEnabled && !settings.reducedMotion && visible && !document.hidden) {
+        emitTrail(trail, point, 0, scene);
+      }
       if (settings.mode === 'grab') {
         const xs = scene.particles.map(p => p.x - p.width / 2);
         const ys = scene.particles.map(p => p.y - p.height / 2);
@@ -137,7 +161,12 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
       }
       wake();
     },
-    leave() { pointer.active = false; wake(); },
+    leave() {
+      pointer.active = false;
+      breakTrail(trail);
+      trailSource = null;
+      wake();
+    },
     cancel: cancelMotion,
     reset,
   });
@@ -158,6 +187,13 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
   on(strength, 'input', () => {
     settings.strength = Math.max(0.25, Math.min(2, Number(strength.value) || 1));
     syncControls();
+    wake();
+  });
+  on(trailToggle, 'change', () => {
+    trailEnabled = trailToggle.checked;
+    clearTrail(trail);
+    trailSource = null;
+    announce(trailEnabled ? 'Trail on. Move inside the stage to leave a fading trail.' : 'Trail off.');
     wake();
   });
   on(force, 'change', () => {
@@ -239,7 +275,7 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
     draw();
     announce(settings.reducedMotion ? 'Reduced motion enabled: direct movement, no inertia or animated recovery.' : 'Full motion enabled.');
   });
-  const pause = () => { input.cancel(); stop(); };
+  const pause = () => { input.cancel(); stop(); draw(); };
   on(window, 'blur', pause);
   on(window, 'focus', wake);
   on(document, 'visibilitychange', () => { if (document.hidden) pause(); else wake(); });
@@ -273,6 +309,8 @@ export function createPlayground(root: HTMLElement, options: { enabledModes?: re
     /** A read-only snapshot supports embedding and deterministic verification. */
     getSnapshot: () => ({ mode: settings.mode, sample, running: frame !== 0,
       reducedMotion: settings.reducedMotion, pointer: { ...pointer },
+      trailEnabled: trailEnabled && !settings.reducedMotion,
+      trailParticles: trail.particles.map(p => ({ ...p })),
       ...scene, particles: scene.particles.map(p => ({ ...p })) }),
     destroy() {
       if (destroyed) return;

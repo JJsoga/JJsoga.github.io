@@ -29,7 +29,7 @@ const markSrc = `${assetBase}favicon.svg`;
 				<select id={`${id}-sample`} data-play-sample>
 					<option value="text">Letters</option>
 					<option value="card">Website card</option>
-					<option value="mark">HC mark</option>
+					<option value="mark">JJ mark</option>
 				</select>
 			</label>
 			<fieldset class="play-mode">
@@ -45,6 +45,10 @@ const markSrc = `${assetBase}favicon.svg`;
 				<input id={`${id}-strength`} type="range" min="0.25" max="2" step="0.25" value="1" data-play-strength />
 			</label>
 			<button class="play-button play-reset" type="button" data-play-reset>Reset <span aria-hidden="true">↺</span></button>
+		</div>
+		<div class="play-trail-control">
+			<label><input type="checkbox" data-play-trail checked /> Trail</label>
+			<span data-play-trail-note hidden>Trails pause with reduced motion.</span>
 		</div>
 		<div class="play-scatter-controls" data-play-scatter-controls hidden>
 			<button class="play-button play-button--accent" type="button" data-play-scatter>Scatter</button>
@@ -97,8 +101,8 @@ const markSrc = `${assetBase}favicon.svg`;
 				<figcaption>Website card</figcaption>
 			</figure>
 			<figure class="play-original-mark">
-				<img src={markSrc} alt="HC monogram" width="80" height="80" loading="lazy" />
-				<figcaption>HC mark</figcaption>
+				<img src={markSrc} alt="JJ monogram" width="80" height="80" loading="lazy" />
+				<figcaption>JJ mark</figcaption>
 			</figure>
 		</div>
 	</details>

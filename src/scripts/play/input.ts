@@ -1,8 +1,8 @@
 import type { Point } from './types';
 
 type InputHandlers = {
-  move: (point: Point, delta: Point) => void;
-  start: (point: Point) => boolean;
+  move: (point: Point, delta: Point, movement: { elapsedSeconds: number; source: 'pointer' | 'keyboard' }) => void;
+  start: (point: Point, source: 'pointer' | 'keyboard') => boolean;
   end: (velocity: Point) => void;
   leave: () => void;
   cancel: () => void;
@@ -14,7 +14,7 @@ export function bindInput(canvas: HTMLCanvasElement, handlers: InputHandlers) {
   const listeners = new AbortController();
   const options = { signal: listeners.signal };
   let activeId: number | null = null;
-  let previous: Point = { x: 0, y: 0 };
+  let previous: Point | null = null;
   let velocity: Point = { x: 0, y: 0 };
   let lastMove = 0;
   let keyboardGrab = false;
@@ -33,6 +33,7 @@ export function bindInput(canvas: HTMLCanvasElement, handlers: InputHandlers) {
     releaseCapture();
     keyboardGrab = false;
     keyboardPoint = null;
+    previous = null;
     velocity = { x: 0, y: 0 };
     handlers.cancel();
   };
@@ -45,7 +46,7 @@ export function bindInput(canvas: HTMLCanvasElement, handlers: InputHandlers) {
     keyboardPoint = null;
     velocity = { x: 0, y: 0 };
     lastMove = event.timeStamp;
-    if (handlers.start(previous)) {
+    if (handlers.start(previous, 'pointer')) {
       activeId = event.pointerId;
       canvas.setPointerCapture(event.pointerId);
     }
@@ -56,21 +57,22 @@ export function bindInput(canvas: HTMLCanvasElement, handlers: InputHandlers) {
     if (!event.isPrimary || (activeId !== null && event.pointerId !== activeId)) return;
     if (event.pointerType !== 'mouse' && activeId === null) return;
     const point = position(event);
-    const delta = { x: point.x - previous.x, y: point.y - previous.y };
-    const elapsed = event.timeStamp - lastMove;
+    const delta = previous ? { x: point.x - previous.x, y: point.y - previous.y } : { x: 0, y: 0 };
+    const elapsed = previous ? event.timeStamp - lastMove : 0;
     if (elapsed > 0) {
       velocity = { x: delta.x / Math.max(8, elapsed) * 1000,
         y: delta.y / Math.max(8, elapsed) * 1000 };
     }
     previous = point;
     lastMove = event.timeStamp;
-    handlers.move(point, delta);
+    handlers.move(point, delta, { elapsedSeconds: Math.max(0, elapsed) / 1000, source: 'pointer' });
   }, options);
 
   canvas.addEventListener('pointerup', event => {
     if (event.pointerId !== activeId) return;
     releaseCapture();
     handlers.end(event.timeStamp - lastMove > 90 ? { x: 0, y: 0 } : velocity);
+    previous = null;
     // Touch has no hover. Mouse also stops applying force after an explicit release.
     handlers.leave();
   }, options);
@@ -81,7 +83,10 @@ export function bindInput(canvas: HTMLCanvasElement, handlers: InputHandlers) {
     if (event.pointerId === activeId) cancel();
   }, options);
   canvas.addEventListener('pointerleave', () => {
-    if (activeId === null) handlers.leave();
+    if (activeId === null) {
+      previous = null;
+      handlers.leave();
+    }
   }, options);
   canvas.addEventListener('blur', cancel, options);
   canvas.addEventListener('keydown', event => {
@@ -101,7 +106,7 @@ export function bindInput(canvas: HTMLCanvasElement, handlers: InputHandlers) {
       if (keyboardGrab) {
         handlers.end(performance.now() - lastMove > 180 ? { x: 0, y: 0 } : velocity);
         keyboardGrab = false;
-      } else keyboardGrab = handlers.start(keyboardPoint);
+      } else keyboardGrab = handlers.start(keyboardPoint, 'keyboard');
     } else {
       const amount = event.shiftKey ? 40 : 20;
       const next = {
@@ -113,8 +118,11 @@ export function bindInput(canvas: HTMLCanvasElement, handlers: InputHandlers) {
       const delta = { x: next.x - keyboardPoint.x, y: next.y - keyboardPoint.y };
       keyboardPoint = next;
       velocity = { x: delta.x * 12, y: delta.y * 12 };
-      lastMove = performance.now();
-      handlers.move(next, delta);
+      const now = performance.now();
+      const elapsedSeconds = Math.max(0, now - lastMove) / 1000;
+      lastMove = now;
+      previous = null;
+      handlers.move(next, delta, { elapsedSeconds, source: 'keyboard' });
     }
   }, options);
 

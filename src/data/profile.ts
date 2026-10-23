@@ -28,7 +28,6 @@ export const profileContentByLocale = {
 		},
 		profile: {
 			name: 'Hexin Chen',
-			initials: 'HC',
 			university: 'Tsinghua University',
 			program: 'Mathematics & Physics × Software Engineering',
 			headline: 'Mathematics & Physics × Software Engineering at Tsinghua University',
@@ -71,14 +70,14 @@ export const profileContentByLocale = {
 			{ label: 'Contact', href: '#contact' },
 		],
 		metadata: {
-			title: 'Hexin Chen | Quantitative Modeling, Machine Learning & Research',
+			title: 'Hexin Chen',
 			description:
 				'Hexin Chen studies Mathematics & Physics and Software Engineering at Tsinghua University, with work in neural audio representation, statistical modeling, signal processing, and real-time sensing systems.',
 			socialImageAlt: 'Hexin Chen — Machine Learning, Statistical Modeling, and Software Systems',
 		},
 		labels: {
 			skipLink: 'Skip to content',
-			brandAria: 'Hexin Chen — back to top',
+			brandAria: 'JJsoga — back to top',
 			navigationAria: 'Primary navigation',
 			academicStandingAria: 'Academic standing',
 			profileLinksAria: 'Profile links',
@@ -110,7 +109,6 @@ export const profileContentByLocale = {
 		},
 		profile: {
 			name: '陈鹤鑫',
-			initials: 'HC',
 			university: '清华大学',
 			program: '数理基础科学 × 软件工程',
 			headline: '清华大学 · 数理基础科学 × 软件工程',
@@ -153,14 +151,14 @@ export const profileContentByLocale = {
 			{ label: '联系', href: '#contact' },
 		],
 		metadata: {
-			title: '陈鹤鑫 | 量化建模、机器学习与研究',
+			title: '陈鹤鑫',
 			description:
 				'陈鹤鑫就读于清华大学数理基础科学与软件工程专业，研究方向包括神经音频表征、统计建模、信号处理与实时感知系统。',
 			socialImageAlt: '陈鹤鑫 — 机器学习、统计建模与软件系统',
 		},
 		labels: {
 			skipLink: '跳转到主要内容',
-			brandAria: '陈鹤鑫 — 返回顶部',
+			brandAria: 'JJsoga — 返回顶部',
 			navigationAria: '主导航',
 			academicStandingAria: '学业表现',
 			profileLinksAria: '个人链接',

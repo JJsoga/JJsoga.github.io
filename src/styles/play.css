@@ -202,6 +202,26 @@
 	font-size: 0.75rem;
 }
 
+.play-trail-control {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.3rem 1rem;
+	padding-bottom: 0.75rem;
+	font-size: 0.8rem;
+}
+
+.play-trail-control label {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	gap: 0.5rem;
+	cursor: pointer;
+}
+
+.play-trail-control input { width: 1.1rem; height: 1.1rem; accent-color: var(--accent); }
+.play-trail-control span { color: var(--muted); }
+
 .play-button--accent {
 	border-color: var(--accent);
 	color: var(--accent);

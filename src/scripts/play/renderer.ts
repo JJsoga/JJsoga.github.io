@@ -1,5 +1,6 @@
 import { PLAY_CONFIG } from './config';
 import type { Particle, Pointer, Sample, Scene } from './types';
+import type { TrailParticle } from './trails';
 
 export const SAMPLE_TEXT = 'Stay curious.';
 
@@ -68,9 +69,20 @@ export class PlayRenderer {
     return { particles, width, height, scattered: false, grabbed: false };
   }
 
-  draw(scene: Scene, image: HTMLImageElement | undefined, pointer: Pointer, radius: number) {
+  draw(scene: Scene, image: HTMLImageElement | undefined, pointer: Pointer, radius: number,
+    trails: readonly TrailParticle[] = []) {
     const ctx = this.context;
     ctx.clearRect(0, 0, scene.width, scene.height);
+    ctx.save();
+    ctx.fillStyle = this.accent;
+    for (const particle of trails) {
+      const progress = Math.min(1, particle.age / particle.lifetime);
+      ctx.globalAlpha = 0.65 * (1 - progress * progress * (3 - 2 * progress));
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, particle.radius * (1 - progress * 0.3), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
     ctx.fillStyle = this.ink;
     ctx.font = this.font;
     ctx.textAlign = 'center';

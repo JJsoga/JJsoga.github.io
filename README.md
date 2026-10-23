@@ -1,6 +1,6 @@
-# Hexin Chen — Academic Portfolio
+# JJsoga — Hexin Chen's website
 
-A static, single-page academic and technical portfolio built with Astro and TypeScript. The site is designed for GitHub Pages and keeps profile content separate from presentation code.
+A static bilingual personal portfolio and experimental Play page built with Astro and TypeScript. The site is designed for GitHub Pages and keeps content, interaction rules and presentation separate.
 
 ## Run locally
 
@@ -26,7 +26,7 @@ Manage the background development server with `npm run astro -- dev status`,
 ## Experimental playground
 
 `/play/` is a client-side playground linked from both portfolio homepages. Choose
-letters, the existing website card (`public/og.png`), or the HC mark
+letters, the existing website card (`public/og.png`), or the JJ mark
 (`public/favicon.svg`). Push moves nearby pieces away and returns them to their
 resting positions. Grab drags the whole selected sample and carries its release
 velocity into a frictional throw. Scatter separates the sample into letters or
@@ -47,6 +47,7 @@ The implementation is original and adds no runtime dependency:
 
 - `src/scripts/play/input.ts`: pointer capture, release velocity, cancellation and keyboard input.
 - `src/scripts/play/behaviors.ts`: DOM-free movement, recovery and bounds.
+- `src/scripts/play/trails.ts`: a separate pool of short-lived pointer particles.
 - `src/scripts/play/renderer.ts`: sample layout and canvas drawing.
 - `src/scripts/play/config.ts`: shared numerical limits.
 - `src/scripts/play/index.ts`: controls, loading and lifecycle cleanup.
@@ -92,6 +93,63 @@ content matched the pre-change build at commit `0f74754` after stripping generat
 Astro scope attributes. New page JavaScript is about 14 kB before compression.
 Physical iPhone/Safari testing remains outstanding; touch tests used Chromium.
 
+## Trails and Word Dice (iteration 2)
+
+Trail is on by default, independently of Push, Grab or Scatter. Its native
+checkbox disables the effect immediately. A separate particle pool is emitted
+along mouse/pen movement, captured touch drags, or keyboard cursor movement;
+speed adjusts spacing and size, with limits in `PLAY_CONFIG.trail`. Defaults:
+96 particles, at most 12 emissions per move, 0.55-second lifetime, 22 CSS px/s
+drift, 5–10 px spacing, 1.4–3.2 px radius, and a speed response capped at
+1600 CSS px/s. Aging and drift use elapsed seconds. Particles fade behind the
+sample, remain clipped to the canvas, and keep the existing animation loop awake
+only until they expire. Reduced motion suppresses trails while remembering the
+toggle preference. Reset, cancellation, resize, blur, hiding, scrolling offscreen,
+and teardown clear them; re-entry cannot draw a bridge across the page.
+
+Word Dice uses the four curated banks in `src/scripts/word-dice/rules.ts`:
+adjective + plural subject + plural-compatible verb phrase + adverbial ending.
+Each bank has exactly six faces, yielding 1,296 possible lines. The visible rules
+show every face-to-phrase mapping. Initial faces are `[1, 1, 1, 1]`; each unlocked
+die uses `floor(Math.random() * 6) + 1`. Repeated faces are valid, with no hidden
+reroll-until-different rule or selection of preferred sentences. Locks preserve
+their values, including individual rerolls. `generateLine` and `rollDice` are
+pure and accept injected randomness for repeatable checks. The presentation is
+in `WordDice.astro`, its stylesheet, and `src/scripts/word-dice/index.ts`.
+
+The generated line updates immediately, without an animation or external text
+service. Copy uses the Clipboard API and provides selectable text if access is
+denied. Cached history restores faces and locks together; a fresh document resets
+both. A one-shot synchronization after page restoration prevents browser-restored
+checkboxes from disagreeing with the dice model. The example and phrase
+banks are readable without JavaScript. All output is labelled as a generated line,
+with no author attribution. There is no dataset, train/test partition, or scientific
+claim; all combinations are checked rather than selecting a favorable subset.
+
+Verification commands:
+
+```bash
+npm run build
+npm run test:metadata
+npm run test:play
+npm run test:word-dice
+npx --yes --package @playwright/cli playwright-cli -s=website-play open http://localhost:4321/play/
+npx --yes --package @playwright/cli playwright-cli -s=website-play run-code --filename scripts/check-play-browser.js --raw
+npx --yes --package @playwright/cli playwright-cli -s=website-play run-code --filename scripts/check-play-v2-browser.js --raw
+```
+
+Iteration 2 checks cover exact generated metadata and 96×96 icon bytes, unchanged
+Google verification, all 1,296 word mappings and 16 lock masks, trail caps/expiry/
+timestep consistency, existing interactions, visibility/offscreen cleanup, keyboard
+controls, narrow layouts and history restoration. Clipboard success/denial tests
+use isolated browser stubs so testing does not alter the user's clipboard. Grammar
+is curated and reviewed; automated mapping checks do not measure literary quality.
+The intended behavior is supported by these checks, with physical Safari/device
+testing still outstanding. Defaults chosen for this iteration are the bounded
+trail settings above, trails on except under reduced motion, immediate dice results,
+the curated banks and initial faces, and honest repeat faces. No material deviation
+from the understanding checkpoint was needed.
+
 To explain the result: this adds an isolated interactive page to the existing
 static portfolio. Input events update a bounded set of letters or image tiles,
 and a small physics step redraws them only while motion is needed. Explicit modes,
@@ -103,6 +161,7 @@ deviation from the initial checkpoint was required.
 ## Edit content
 
 - `src/data/profile.ts` contains the name, biography, education, interests, contact links, coursework, awards, navigation, and default metadata.
+- `src/data/site.ts` contains the JJsoga site identity and single root-homepage WebSite entity. Personal headings remain Hexin Chen / 陈鹤鑫; page titles are independent of the brand.
 - `src/data/projects.ts` contains the flagship and current-work project content.
 - `src/components/FlagshipProjectCard.astro` contains the accessible neural-audio and sensing pipeline diagrams.
 - `src/pages/index.astro` defines the homepage section structure.
@@ -138,3 +197,22 @@ If the deployment branch is not `main`, update the branch name in `.github/workf
 3. Configure the domain in the repository's **Settings → Pages** and add the DNS records GitHub provides.
 
 Run `npm run build` after every configuration change so canonical and social metadata use the final public URL.
+
+## Branding and search appearance
+
+The English title, Open Graph title and Twitter title are `Hexin Chen`; the
+Chinese equivalents are `陈鹤鑫`. The Play title remains `Play | Hexin Chen`.
+All pages share the visible JJsoga brand and `og:site_name`. The single `WebSite`
+JSON-LD entity on `/` uses `JJsoga`, alternative name `Hexin Chen`, and
+`https://jjsoga.github.io/`. Canonical URLs, language alternatives, and the Google
+verification file are preserved. The JJ monogram is shared by headers and Play;
+`npm run icons` regenerates its 96 × 96 PNG from `public/favicon.svg`.
+
+After deployment, open Google Search Console, choose the verified property for
+`https://jjsoga.github.io/`, inspect that exact homepage URL, and choose **Request
+indexing**. Use **Test live URL** first to check the deployed page if needed. An
+owner or full-user role is required. This requests a recrawl, not a guaranteed
+search title or site name; Google controls indexing, appearance and timing, which
+can take days to weeks. Repeating the request does not make it faster. See
+[Google's recrawl guidance](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl)
+and [site-name guidance](https://developers.google.com/search/docs/appearance/site-names).

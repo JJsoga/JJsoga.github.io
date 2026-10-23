@@ -1,0 +1,69 @@
+---
+import '../styles/word-dice.css';
+import { generateLine, INITIAL_ROLLS, WORD_BANKS } from '../scripts/word-dice/rules';
+
+interface Props { id?: string; }
+const { id = 'word-dice' } = Astro.props;
+---
+
+<section class="word-dice" data-word-dice aria-labelledby={`${id}-title`}>
+	<header class="word-dice-heading">
+		<p class="section-kicker">Experiment 002</p>
+		<h2 id={`${id}-title`}>Word Dice</h2>
+		<p>Four dice. One small surprise. Keep the words you like and roll the rest.</p>
+	</header>
+	<p class="word-dice-rule" id={`${id}-rules`}>Adjective + plural subject + verb phrase + ending. Each face (1–6) selects one phrase from its die’s bank. A reroll can land on the same face.</p>
+	<fieldset class="word-dice-controls" data-word-controls disabled aria-describedby={`${id}-rules`}>
+		<legend class="word-dice-sr-only">Sentence dice controls</legend>
+		<div class="word-dice-grid">
+			{WORD_BANKS.map((slot, index) => (
+				<div class="word-die" data-word-die data-word-face={INITIAL_ROLLS[index]} data-word-locked="false">
+					<p class="word-die-slot"><span aria-hidden="true">{index + 1} / </span>{slot.label}</p>
+					<div class="word-die-value">
+						<span class="word-die-face" aria-label={`${slot.label} die face`}><span data-word-face>{INITIAL_ROLLS[index]}</span></span>
+						<p data-word-phrase>{slot.phrases[INITIAL_ROLLS[index] - 1]}</p>
+					</div>
+					<div class="word-die-actions">
+						<button type="button" data-word-reroll aria-label={`Reroll ${slot.label.toLowerCase()} die`}>Reroll <span aria-hidden="true">↻</span></button>
+						<label class="word-die-lock">
+							<input type="checkbox" data-word-lock aria-label={`Lock ${slot.label.toLowerCase()} die`} />
+							<span data-word-lock-label>Lock</span>
+						</label>
+					</div>
+				</div>
+			))}
+		</div>
+		<div class="word-dice-actions">
+			<button type="button" class="word-dice-roll-all" data-word-roll-all aria-describedby={`${id}-lock-status`}>Roll unlocked dice <span aria-hidden="true">↻</span></button>
+			<button type="button" data-word-copy>Copy line</button>
+		</div>
+		<p class="word-dice-lock-status" id={`${id}-lock-status`} data-word-lock-status>4 dice are unlocked. Locked dice keep their phrases.</p>
+	</fieldset>
+	<div class="word-dice-result">
+		<p class="word-dice-result-label">Generated line</p>
+		<p class="word-dice-sentence" data-word-result aria-live="polite" aria-atomic="true">{generateLine(INITIAL_ROLLS)}</p>
+	</div>
+	<p class="word-dice-status" data-word-status role="status" aria-live="polite" aria-atomic="true"></p>
+	<div class="word-dice-manual-copy" data-word-manual-copy hidden>
+		<label for={`${id}-copy-text`}>Copy this generated line manually</label>
+		<textarea id={`${id}-copy-text`} data-word-copy-text readonly rows="3" spellcheck="false">{generateLine(INITIAL_ROLLS)}</textarea>
+	</div>
+	<details class="word-dice-banks">
+		<summary>See all six faces and their phrases</summary>
+		<div class="word-dice-banks-grid">
+			{WORD_BANKS.map(slot => (
+				<div>
+					<h3>{slot.label}</h3>
+					<ol>{slot.phrases.map((phrase, index) => <li><span>{index + 1}</span>{phrase}</li>)}</ol>
+				</div>
+			))}
+		</div>
+		<p>All subjects are plural; the verb phrases agree with every subject. These are original generated lines, with no author attribution.</p>
+	</details>
+	<noscript><p class="word-dice-no-script">Enable JavaScript to roll and copy. The example line and all the phrase banks are available above.</p></noscript>
+</section>
+
+<script>
+	import { mountWordDice } from '../scripts/word-dice/index';
+	mountWordDice();
+</script>
