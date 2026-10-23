@@ -1,4 +1,4 @@
-/** Site identity is separate from the person and page-specific titles. */
+/** Search metadata only; visible names and HC marks come from the personal profile. */
 export const siteBrand = {
   name: 'JJsoga',
   alternateName: 'Hexin Chen',

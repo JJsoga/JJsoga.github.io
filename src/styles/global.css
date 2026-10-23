@@ -154,10 +154,17 @@
 	}
 
 	.brand-mark {
-		display: block;
+		display: grid;
 		width: 2rem;
 		height: 2rem;
 		flex: none;
+		place-items: center;
+		background: var(--ink);
+		color: white;
+		font-family: var(--mono);
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
 	}
 
 	.primary-nav ul {

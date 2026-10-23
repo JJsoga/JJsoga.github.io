@@ -1,4 +1,4 @@
-# JJsoga — Hexin Chen's website
+# Hexin Chen — Academic Portfolio
 
 A static bilingual personal portfolio and experimental Play page built with Astro and TypeScript. The site is designed for GitHub Pages and keeps content, interaction rules and presentation separate.
 
@@ -26,7 +26,7 @@ Manage the background development server with `npm run astro -- dev status`,
 ## Experimental playground
 
 `/play/` is a client-side playground linked from both portfolio homepages. Choose
-letters, the existing website card (`public/og.png`), or the JJ mark
+letters, the existing website card (`public/og.png`), or the HC mark
 (`public/favicon.svg`). Push moves nearby pieces away and returns them to their
 resting positions. Grab drags the whole selected sample and carries its release
 velocity into a frictional throw. Scatter separates the sample into letters or
@@ -161,7 +161,7 @@ deviation from the initial checkpoint was required.
 ## Edit content
 
 - `src/data/profile.ts` contains the name, biography, education, interests, contact links, coursework, awards, navigation, and default metadata.
-- `src/data/site.ts` contains the JJsoga site identity and single root-homepage WebSite entity. Personal headings remain Hexin Chen / 陈鹤鑫; page titles are independent of the brand.
+- `src/data/site.ts` contains the preferred search site name JJsoga and single root-homepage WebSite entity. Visible names remain Hexin Chen / 陈鹤鑫, with HC marks; search metadata does not rename the interface.
 - `src/data/projects.ts` contains the flagship and current-work project content.
 - `src/components/FlagshipProjectCard.astro` contains the accessible neural-audio and sensing pipeline diagrams.
 - `src/pages/index.astro` defines the homepage section structure.
@@ -202,11 +202,18 @@ Run `npm run build` after every configuration change so canonical and social met
 
 The English title, Open Graph title and Twitter title are `Hexin Chen`; the
 Chinese equivalents are `陈鹤鑫`. The Play title remains `Play | Hexin Chen`.
-All pages share the visible JJsoga brand and `og:site_name`. The single `WebSite`
+All pages use `JJsoga` for `og:site_name`, while the navigation retains the visible
+personal name (Hexin Chen / 陈鹤鑫) and original HC mark. The single `WebSite`
 JSON-LD entity on `/` uses `JJsoga`, alternative name `Hexin Chen`, and
 `https://jjsoga.github.io/`. Canonical URLs, language alternatives, and the Google
-verification file are preserved. The JJ monogram is shared by headers and Play;
+verification file are preserved. The original HC favicon artwork is used by Play;
 `npm run icons` regenerates its 96 × 96 PNG from `public/favicon.svg`.
+
+The focused branding correction restores the HC artwork and labels without changing
+page descriptions, responsive layout, trails, Word Dice, or other interaction logic.
+Generated-output checks distinguish search metadata from visible branding and verify
+that the PNG contains the same HC artwork as the SVG. The SVG matches the original
+asset from commit `fd6764b`. There is no dataset or selection procedure for this change.
 
 After deployment, open Google Search Console, choose the verified property for
 `https://jjsoga.github.io/`, inspect that exact homepage URL, and choose **Request

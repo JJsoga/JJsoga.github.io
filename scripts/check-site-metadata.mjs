@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
+import sharp from 'sharp';
 
 // Inspect the actual static output after `npm run build`, independently of Astro components.
 const site = 'https://jjsoga.github.io/';
@@ -64,9 +65,18 @@ for (const page of [
     .filter(match => attributes(match[1]).class?.split(/\s+/).includes('site-header')), 'site header')[2];
   const spans = Array.from(header.matchAll(/<span\b([^>]*)>([\s\S]*?)<\/span>/gi));
   const brandText = className => text(only(spans.filter(span => attributes(span[1]).class?.split(/\s+/).includes(className)), className)[2]);
-  assert.equal(brandText('brand-name'), 'JJsoga', `${page.file}: visible website brand`);
-  const mark = only(tags(header, 'img').filter(item => item.class?.split(/\s+/).includes('brand-mark')), 'brand monogram');
-  assert.equal(new URL(mark.src, canonical).href, new URL('favicon.svg', site).href, `${page.file}: matching JJ vector monogram`);
+  const personalName = page.lang === 'zh-CN' ? '陈鹤鑫' : 'Hexin Chen';
+  assert.equal(brandText('brand-name'), personalName, `${page.file}: visible personal name`);
+  assert.equal(brandText('brand-mark'), 'HC', `${page.file}: original navigation monogram`);
+  const brand = only(tags(header, 'a').filter(item => item.class?.split(/\s+/).includes('brand')), 'brand link');
+  assert.equal(brand['aria-label'], `${personalName} — ${page.translated ? (page.lang === 'zh-CN' ? '返回顶部' : 'back to top') : 'home'}`,
+    `${page.file}: accessible personal name`);
+  if (!page.translated) {
+    assert.match(html, /<option\b[^>]*value="mark"[^>]*>HC mark<\/option>/, 'HC sample label');
+    assert.match(html, /<figcaption\b[^>]*>HC mark<\/figcaption>/, 'HC sample caption');
+    const sample = only(tags(html, 'img').filter(item => item.alt === 'HC monogram'), 'accessible HC sample');
+    assert.equal(new URL(sample.src, canonical).href, new URL('favicon.svg', site).href);
+  }
   if (page.translated) {
     assert.equal(text(only(Array.from(html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)), 'personal heading')[1]), page.title,
       `${page.file}: personal name remains the main heading`);
@@ -94,10 +104,13 @@ assert.equal(png.readUInt32BE(20), 96, 'PNG favicon height');
 assert.deepEqual(png, await read('public/favicon.png'), 'built PNG matches the source asset');
 const svg = await read('dist/favicon.svg', 'utf8');
 assert.match(svg, /<svg\b/, 'SVG favicon exists');
-assert.match(svg, /(?:aria-label\s*=\s*["'][^"']*\bJJ\b[^"']*["']|<title\b[^>]*>[^<]*\bJJ\b[^<]*<\/title>)/i,
-  'SVG exposes the JJ monogram name');
+assert.match(svg, /(?:aria-label\s*=\s*["'][^"']*\bHC\b[^"']*["']|<title\b[^>]*>[^<]*\bHC\b[^<]*<\/title>)/i,
+  'SVG exposes the HC monogram name');
 assert.equal(svg, await read('public/favicon.svg', 'utf8'), 'built SVG matches the source asset');
-pass('96 × 96 PNG and accessible JJ vector assets are present in the build');
+assert.deepEqual(await sharp(png).ensureAlpha().raw().toBuffer(),
+  await sharp(Buffer.from(svg)).resize(96, 96).ensureAlpha().raw().toBuffer(),
+  'PNG contains the restored HC artwork, not a stale icon variant');
+pass('96 × 96 PNG and accessible HC vector assets match in the build');
 
 // Frozen before this iteration: 53 bytes, no newline. This file must remain deployable unchanged.
 const verificationFile = 'google27b0d059cbe490c6.html';

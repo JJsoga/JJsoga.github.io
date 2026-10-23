@@ -28,6 +28,7 @@ export const profileContentByLocale = {
 		},
 		profile: {
 			name: 'Hexin Chen',
+			initials: 'HC',
 			university: 'Tsinghua University',
 			program: 'Mathematics & Physics × Software Engineering',
 			headline: 'Mathematics & Physics × Software Engineering at Tsinghua University',
@@ -77,7 +78,7 @@ export const profileContentByLocale = {
 		},
 		labels: {
 			skipLink: 'Skip to content',
-			brandAria: 'JJsoga — back to top',
+			brandAria: 'Hexin Chen — back to top',
 			navigationAria: 'Primary navigation',
 			academicStandingAria: 'Academic standing',
 			profileLinksAria: 'Profile links',
@@ -109,6 +110,7 @@ export const profileContentByLocale = {
 		},
 		profile: {
 			name: '陈鹤鑫',
+			initials: 'HC',
 			university: '清华大学',
 			program: '数理基础科学 × 软件工程',
 			headline: '清华大学 · 数理基础科学 × 软件工程',
@@ -158,7 +160,7 @@ export const profileContentByLocale = {
 		},
 		labels: {
 			skipLink: '跳转到主要内容',
-			brandAria: 'JJsoga — 返回顶部',
+			brandAria: '陈鹤鑫 — 返回顶部',
 			navigationAria: '主导航',
 			academicStandingAria: '学业表现',
 			profileLinksAria: '个人链接',
