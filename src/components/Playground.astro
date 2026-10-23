@@ -1,0 +1,111 @@
+---
+import '../styles/play.css';
+import type { Mode } from '../scripts/play/types';
+
+interface Props {
+	id?: string;
+	enabledModes?: Mode[];
+}
+
+const { id = 'play', enabledModes = ['push', 'grab', 'scatter'] } = Astro.props;
+const assetBase = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const cardSrc = `${assetBase}og.png`;
+const markSrc = `${assetBase}favicon.svg`;
+---
+
+<section
+	class="playground"
+	aria-label="Text and image playground"
+	data-playground
+	data-play-modes={enabledModes.join(',')}
+	data-card-src={cardSrc}
+	data-mark-src={markSrc}
+>
+	<fieldset class="play-controls" data-play-controls disabled>
+		<legend class="play-sr-only">Playground controls</legend>
+		<div class="play-toolbar">
+			<label class="play-field" for={`${id}-sample`}>
+				<span class="play-control-label">Play with</span>
+				<select id={`${id}-sample`} data-play-sample>
+					<option value="text">Letters</option>
+					<option value="card">Website card</option>
+					<option value="mark">HC mark</option>
+				</select>
+			</label>
+			<fieldset class="play-mode">
+				<legend class="play-control-label">Interaction</legend>
+				<div class="play-mode-options">
+					<label><input type="radio" name={`${id}-mode`} data-play-mode value="push" checked /><span>Push</span></label>
+					<label><input type="radio" name={`${id}-mode`} data-play-mode value="grab" /><span>Grab</span></label>
+					<label><input type="radio" name={`${id}-mode`} data-play-mode value="scatter" /><span>Scatter</span></label>
+				</div>
+			</fieldset>
+			<label class="play-field play-strength" for={`${id}-strength`}>
+				<span class="play-control-label">Strength <output for={`${id}-strength`} data-play-strength-value>1×</output></span>
+				<input id={`${id}-strength`} type="range" min="0.25" max="2" step="0.25" value="1" data-play-strength />
+			</label>
+			<button class="play-button play-reset" type="button" data-play-reset>Reset <span aria-hidden="true">↺</span></button>
+		</div>
+		<div class="play-scatter-controls" data-play-scatter-controls hidden>
+			<button class="play-button play-button--accent" type="button" data-play-scatter>Scatter</button>
+			<label class="play-force" for={`${id}-force`}>
+				<span>Cursor force</span>
+				<select id={`${id}-force`} data-play-force>
+					<option value="repel">Repel</option>
+					<option value="attract">Attract</option>
+				</select>
+			</label>
+			<button class="play-button" type="button" data-play-regroup>Regroup</button>
+		</div>
+	</fieldset>
+
+	<div class="play-stage">
+		<canvas
+			data-play-canvas
+			tabindex="0"
+			aria-label="Interactive text and image stage"
+			aria-describedby={`${id}-help ${id}-keyboard`}
+			hidden
+		>
+			Stay curious. The original text and images are also available below the playground.
+		</canvas>
+		<p class="play-fallback" data-play-fallback>
+			<span>Stay curious.</span>
+			This playground needs JavaScript and a browser with Canvas support. The originals are available below.
+		</p>
+	</div>
+
+	<div class="play-instructions">
+		<p id={`${id}-help`} data-play-help>Move your cursor, or touch and slide, to push the pieces away. Move away to let them return.</p>
+		<p class="play-status" data-play-status role="status" aria-live="polite" aria-atomic="true"></p>
+		<p class="play-reduced" data-play-reduced hidden>Your reduced-motion preference is on. Movement follows your input directly, without drifting or animated transitions.</p>
+		<details class="play-keyboard">
+			<summary>Keyboard controls</summary>
+			<p id={`${id}-keyboard`}>Focus the stage with Tab. Arrow keys move the cursor; Enter grabs or releases in Grab mode. Escape resets the arrangement. Tab always moves to the next control.</p>
+		</details>
+	</div>
+
+	<details class="play-originals">
+		<summary>The originals <span>Readable, and always in one piece.</span></summary>
+		<div class="play-originals-grid">
+			<div>
+				<p class="play-control-label">Sample text</p>
+				<p class="play-original-text">Stay curious.</p>
+			</div>
+			<figure>
+				<img src={cardSrc} alt="Hexin Chen's website card" width="1200" height="630" loading="lazy" />
+				<figcaption>Website card</figcaption>
+			</figure>
+			<figure class="play-original-mark">
+				<img src={markSrc} alt="HC monogram" width="80" height="80" loading="lazy" />
+				<figcaption>HC mark</figcaption>
+			</figure>
+		</div>
+	</details>
+</section>
+
+<script>
+	import { mountPlaygrounds } from '../scripts/play/index';
+
+	mountPlaygrounds();
+</script>

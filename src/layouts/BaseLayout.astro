@@ -10,6 +10,7 @@ interface Props {
 	skipLinkText?: string;
 	socialImageAlt: string;
 	siteName: string;
+	translatedPage?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
 	skipLinkText = 'Skip to content',
 	socialImageAlt,
 	siteName,
+	translatedPage = true,
 } = Astro.props;
 const basePath = import.meta.env.BASE_URL;
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
@@ -39,9 +41,13 @@ const isChinese = lang === 'zh-CN';
 		<meta name="theme-color" content="#f5f5f1" />
 		<link rel="icon" type="image/svg+xml" href={`${assetBase}favicon.svg`} />
 		<link rel="canonical" href={canonicalURL} />
-		<link rel="alternate" hreflang="en" href={englishURL} />
-		<link rel="alternate" hreflang="zh-CN" href={chineseURL} />
-		<link rel="alternate" hreflang="x-default" href={englishURL} />
+		{translatedPage && (
+			<>
+				<link rel="alternate" hreflang="en" href={englishURL} />
+				<link rel="alternate" hreflang="zh-CN" href={chineseURL} />
+				<link rel="alternate" hreflang="x-default" href={englishURL} />
+			</>
+		)}
 		{isChinese && (
 			<>
 				<link rel="stylesheet" href={lxgwWenKaiRegular} />
@@ -52,7 +58,7 @@ const isChinese = lang === 'zh-CN';
 
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content={isChinese ? 'zh_CN' : 'en_US'} />
-		<meta property="og:locale:alternate" content={isChinese ? 'en_US' : 'zh_CN'} />
+		{translatedPage && <meta property="og:locale:alternate" content={isChinese ? 'en_US' : 'zh_CN'} />}
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalURL} />

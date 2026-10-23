@@ -26,3 +26,7 @@ Desktop.ini
 .idea/
 .vscode/
 *.swp
+
+# local browser verification artifacts
+.playwright-cli/
+output/playwright/

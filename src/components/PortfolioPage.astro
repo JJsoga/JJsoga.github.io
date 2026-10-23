@@ -13,6 +13,7 @@ const { locale } = Astro.props;
 const content = profileContentByLocale[locale];
 const projects = projectContentByLocale[locale];
 const currentYear = new Date().getFullYear();
+const playHref = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/play/`;
 ---
 
 <BaseLayout
@@ -37,6 +38,7 @@ const currentYear = new Date().getFullYear();
 								<a href={item.href}>{item.label}</a>
 							</li>
 						))}
+						<li class="nav-item--play"><a href={playHref}>Play</a></li>
 					</ul>
 				</nav>
 				<a
@@ -167,3 +169,25 @@ const currentYear = new Date().getFullYear();
 		</div>
 	</footer>
 </BaseLayout>
+
+<style>
+	.primary-nav .nav-item--play a {
+		color: var(--accent);
+	}
+
+	@media (max-width: 460px) {
+		.nav-shell {
+			flex-wrap: wrap;
+			gap: 0.25rem 0.75rem;
+		}
+
+		.header-controls {
+			flex-basis: 100%;
+			justify-content: space-between;
+		}
+
+		.primary-nav ul {
+			gap: clamp(0.6rem, 3vw, 1rem);
+		}
+	}
+</style>
