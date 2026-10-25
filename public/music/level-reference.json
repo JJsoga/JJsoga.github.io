@@ -1,0 +1,131 @@
+{
+  "protocol": "Mean first-second dry stereo RMS, separate MIDI60/64/67 at velocity96, CC7/11=127, 128-frame synthesis blocks, target0.06, maximum reference peak0.65, gain cap16. No listening test implied.",
+  "levels": [
+    {
+      "id": "gu-piano",
+      "measurements": [
+        {
+          "pitch": 60,
+          "rms": 0.02883966850156248,
+          "peak": 0.11737005412578583
+        },
+        {
+          "pitch": 64,
+          "rms": 0.02740302631560888,
+          "peak": 0.11779052019119263
+        },
+        {
+          "pitch": 67,
+          "rms": 0.03590425251790912,
+          "peak": 0.13682346045970917
+        }
+      ],
+      "defaultGain": 1.953
+    },
+    {
+      "id": "gu-harmonica",
+      "measurements": [
+        {
+          "pitch": 60,
+          "rms": 0.035462616140132915,
+          "peak": 0.11497727781534195
+        },
+        {
+          "pitch": 64,
+          "rms": 0.03577768786957977,
+          "peak": 0.11520599573850632
+        },
+        {
+          "pitch": 67,
+          "rms": 0.031026113689377872,
+          "peak": 0.10952863097190857
+        }
+      ],
+      "defaultGain": 1.76
+    },
+    {
+      "id": "gu-guitar",
+      "measurements": [
+        {
+          "pitch": 60,
+          "rms": 0.02625618007329892,
+          "peak": 0.16193853318691254
+        },
+        {
+          "pitch": 64,
+          "rms": 0.02772312494331253,
+          "peak": 0.1286669373512268
+        },
+        {
+          "pitch": 67,
+          "rms": 0.03042966675510069,
+          "peak": 0.15049514174461365
+        }
+      ],
+      "defaultGain": 2.132
+    },
+    {
+      "id": "freepats-guitar",
+      "measurements": [
+        {
+          "pitch": 60,
+          "rms": 0.033658966452192934,
+          "peak": 0.23300716280937195
+        },
+        {
+          "pitch": 64,
+          "rms": 0.03817741518498933,
+          "peak": 0.2289981096982956
+        },
+        {
+          "pitch": 67,
+          "rms": 0.04582960255944692,
+          "peak": 0.23369812965393066
+        }
+      ],
+      "defaultGain": 1.53
+    },
+    {
+      "id": "vcsl-piano",
+      "measurements": [
+        {
+          "pitch": 60,
+          "rms": 0.07473400862690908,
+          "peak": 0.5384131073951721
+        },
+        {
+          "pitch": 64,
+          "rms": 0.06521976636033305,
+          "peak": 0.36253392696380615
+        },
+        {
+          "pitch": 67,
+          "rms": 0.09078487445514012,
+          "peak": 0.763795793056488
+        }
+      ],
+      "defaultGain": 0.78
+    },
+    {
+      "id": "vcsl-harmonica",
+      "measurements": [
+        {
+          "pitch": 60,
+          "rms": 0.13326955721564795,
+          "peak": 0.4780741333961487
+        },
+        {
+          "pitch": 64,
+          "rms": 0.1551366413216008,
+          "peak": 0.47335582971572876
+        },
+        {
+          "pitch": 67,
+          "rms": 0.15910927808579797,
+          "peak": 0.5649625658988953
+        }
+      ],
+      "defaultGain": 0.402
+    }
+  ]
+}

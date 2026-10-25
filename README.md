@@ -158,6 +158,80 @@ The automated checks support functional correctness in Chromium, not claims abou
 engagement, universal device support or benchmark performance. No material design
 deviation from the initial checkpoint was required.
 
+## Multitrack music (iteration 3)
+
+The Play page's **A small ensemble** component uses one Web Audio clock, SpessaSynth
+4.3.14 / Core 4.3.22 for SoundFonts, and a mapped Web Audio sample player for VCSL.
+Click **Enable sound**, focus the music area, and play A–J (lower scale) / Q–U
+(upper scale). Start is C major with A=C4. All 12 major roots and octave shifts
+from −2 to +2 are available; notes outside a preset's range are disabled. Shift
+is captured at keydown. Repeat events and typing in editable fields do not play.
+Pointer buttons support touch; Space/Enter activate a focused note button.
+
+Add a track, choose one of its two presets, rewind or seek in seconds, and choose
+**Record selected track**. Existing clips accompany the new take. **Finish take**
+stores actual MIDI pitch, start, held duration, velocity 96, preset ID/version,
+and instrument volume. Changing key, octave, preset or volume never rewrites old
+takes. Recording locks track/preset/volume selection; musical key can still change
+between presses. Recordings are in this tab's memory, not uploaded or persisted.
+
+Select a clip in Timeline while stopped. **Move** sets its timeline start.
+**Trim** changes its source in/out window; moving the left boundary preserves
+remaining notes' absolute positions. **Split** divides the window at a timeline
+second; adjacent portions of the same note are consolidated for continuous playback.
+**Delete clip** removes that window. No pitch changes, time stretching, quantization,
+or hidden gain adjustments are part of clip editing. Starting playback or trimming
+inside a SoundFont note retriggers its attack because that backend has no voice seek;
+the VCSL sample backend resumes at the corresponding sample offset.
+
+Visual playback reads the same resolved events and clock. Absolute pitch determines
+symbol/color, independent of the current musical key; a shape palette is configurable.
+Each track has its own lane. Piano uses a fine outline, harmonica a heavy shadowed
+outline, guitar a medium softly shadowed outline. Upcoming notes approach a fixed
+marker, onsets flash once, held notes stay highlighted, and extensions show duration.
+Reduced motion uses a stationary six-second sheet with timing highlights.
+
+Modules are separate in `src/scripts/music/`: `keyboard.ts` (mapping), `presets.ts`
+(versioned assets), `engine.ts` (voices/loading), `types.ts` and `model.ts` (takes,
+clips and event projection), `views.ts` (presentation), and `index.ts` (UI/lifecycle).
+Defaults are GeneralUser acoustic grand, harmonica and nylon guitar. Alternatives
+are VCSL Kawai Legacy, VCSL Super 64 and FreePats Spanish classical guitar. Assets
+load per selected preset and are reused within the session; none load before sound
+is enabled. See [instrument provenance, licenses, mapping and gain protocol](public/music/README.md).
+
+Chosen bounds: 8 tracks, 256 clips, 120 seconds, 2,000 recorded/resolved notes, 64 simultaneous
+note instances, a 25 ms scheduler with 120 ms look-ahead, and fixed output headroom.
+Each note owns its voice, including unisons. Piano/guitar retain decay; harmonica
+loops sustain bodies only. Visibility loss pauses and silences audio; navigation
+destroys the worklet/context and listeners. Resume sound explicitly after returning.
+The component has no microphone access, external generation service, or new backend.
+
+Verification: `npm run test:music` checks mapping, immutable edits, split continuity,
+version/gain snapshots, limits and all six asset packages. The source hashes and
+original SoundFont programming are preserved; the disclosed VCSL adaptations are
+tested separately. `scripts/check-music-browser.js` runs via the existing Playwright
+CLI and exercises real audio, keyboard/blur/touch releases, multitrack recording,
+shared-clock playback, both views, clip controls, narrow layout and teardown.
+Build, strict TypeScript, metadata, and earlier Play checks also apply. There is no
+training/evaluation split or statistical performance claim. The frozen baseline is
+the existing Play functionality; this adds an isolated component without changing it.
+Automated waveform checks establish non-silent playback and timing behavior, not
+a perceptual listening score. Physical Safari/iPhone testing remains outstanding.
+The release passed nine model check groups, the six-preset asset checks, strict
+TypeScript, and eight browser check groups against the compiled preview. Separate
+engine checks covered queued-note cancellation, the 64-note cap, sustain/release,
+cache reuse and teardown. A simulated failed asset request confirmed explicit retry.
+The only dependency additions are pinned SpessaSynth library/core and their
+Vorbis decoder; the pre-existing Astro build dependency audit findings were not
+changed as part of this feature.
+
+To explain the design: performance settings determine each new note only when it
+is pressed. Takes retain those note events and the exact preset identity. Clip
+windows arrange immutable takes, and both views consume their resolved events.
+One audio clock keeps accompaniment and the new take aligned; visual animation
+never drives sound scheduling. The principal remaining limits are tab-only storage
+and retriggering when seeking into held SoundFont notes.
+
 ## Edit content
 
 - `src/data/profile.ts` contains the name, biography, education, interests, contact links, coursework, awards, navigation, and default metadata.

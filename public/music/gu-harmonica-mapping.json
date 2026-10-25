@@ -1,0 +1,247 @@
+[
+  {
+    "name": "Harmonica",
+    "program": 22,
+    "bank": 0,
+    "zones": [
+      {
+        "keyRange": {
+          "min": -1,
+          "max": 127
+        },
+        "velocityRange": {
+          "min": -1,
+          "max": 127
+        },
+        "generators": [
+          {
+            "type": 5,
+            "value": -2
+          },
+          {
+            "type": 8,
+            "value": 814
+          },
+          {
+            "type": 10,
+            "value": -250
+          },
+          {
+            "type": 16,
+            "value": 50
+          },
+          {
+            "type": 48,
+            "value": 95
+          }
+        ],
+        "modulators": [
+          {
+            "destination": 8,
+            "transformAmount": -3600,
+            "transformType": 0,
+            "primarySource": {
+              "isBipolar": false,
+              "isNegative": true,
+              "index": 2,
+              "isCC": false,
+              "curveType": 0
+            },
+            "secondarySource": {
+              "isBipolar": false,
+              "isNegative": false,
+              "index": 0,
+              "isCC": false,
+              "curveType": 0
+            }
+          }
+        ],
+        "instrument": "Harmonica",
+        "instrumentGlobalGenerators": [
+          {
+            "type": 8,
+            "value": 9477
+          },
+          {
+            "type": 11,
+            "value": 3600
+          },
+          {
+            "type": 21,
+            "value": 0
+          },
+          {
+            "type": 22,
+            "value": -770
+          },
+          {
+            "type": 24,
+            "value": -1117
+          },
+          {
+            "type": 28,
+            "value": 583
+          },
+          {
+            "type": 29,
+            "value": 1000
+          },
+          {
+            "type": 30,
+            "value": 68
+          },
+          {
+            "type": 34,
+            "value": -8857
+          },
+          {
+            "type": 36,
+            "value": 1268
+          },
+          {
+            "type": 37,
+            "value": 30
+          },
+          {
+            "type": 38,
+            "value": -2191
+          },
+          {
+            "type": 54,
+            "value": 1
+          }
+        ],
+        "samples": [
+          {
+            "name": "Harmonica-E3",
+            "keyRange": {
+              "min": 0,
+              "max": 66
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 64,
+            "correctionCents": -7,
+            "sampleRate": 32000,
+            "loopStart": 5145,
+            "loopEnd": 5338,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "Harmonica-A3",
+            "keyRange": {
+              "min": 67,
+              "max": 72
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 69,
+            "correctionCents": -1,
+            "sampleRate": 32000,
+            "loopStart": 6515,
+            "loopEnd": 6660,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "Harmonica-E4",
+            "keyRange": {
+              "min": 73,
+              "max": 78
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 76,
+            "correctionCents": -16,
+            "sampleRate": 32000,
+            "loopStart": 4267,
+            "loopEnd": 4363,
+            "generators": [
+              {
+                "type": 48,
+                "value": 30
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Harmonica-A4",
+            "keyRange": {
+              "min": 79,
+              "max": 84
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -1,
+            "sampleRate": 32000,
+            "loopStart": 4800,
+            "loopEnd": 4945,
+            "generators": [
+              {
+                "type": 48,
+                "value": 30
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Harmonica-E5",
+            "keyRange": {
+              "min": 85,
+              "max": 89
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 88,
+            "correctionCents": -16,
+            "sampleRate": 32000,
+            "loopStart": 4290,
+            "loopEnd": 4362,
+            "generators": [
+              {
+                "type": 48,
+                "value": 20
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Harmonica-B5",
+            "keyRange": {
+              "min": 90,
+              "max": 117
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 95,
+            "correctionCents": -18,
+            "sampleRate": 32000,
+            "loopStart": 4707,
+            "loopEnd": 4739,
+            "generators": [
+              {
+                "type": 48,
+                "value": 20
+              }
+            ],
+            "modulators": []
+          }
+        ]
+      }
+    ]
+  }
+]

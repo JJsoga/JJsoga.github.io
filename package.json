@@ -12,12 +12,16 @@
     "test:play": "node scripts/check-play.mjs && node scripts/check-trails.mjs",
     "test:word-dice": "node scripts/check-word-dice.mjs",
     "test:metadata": "node scripts/check-site-metadata.mjs",
+    "test:music": "node scripts/check-music.mjs && node scripts/check-music-assets.mjs",
+    "music:prepare": "node scripts/prepare-music-assets.mjs",
     "icons": "node scripts/generate-favicon.mjs",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^7.3.5",
-    "lxgw-wenkai-webfont": "1.7.0"
+    "lxgw-wenkai-webfont": "1.7.0",
+    "spessasynth_core": "4.3.22",
+    "spessasynth_lib": "4.3.14"
   },
   "allowScripts": {
     "esbuild": true

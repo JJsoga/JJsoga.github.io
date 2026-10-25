@@ -1,0 +1,277 @@
+{
+  "formatVersion": 1,
+  "generalUserCommit": "684543d5e5efaef08d02be50dcda8d552478fa60",
+  "vcslCommit": "dfcf4a4918771eee884b96ad4493de82ef84daf6",
+  "freepatsVersion": "2019-06-18",
+  "fixedVelocity": 96,
+  "packages": [
+    {
+      "id": "gu-piano",
+      "bytes": 2178864,
+      "sha256": "cacee0865b6e81f595756784e02b49c42b3a6f883b770cb9fff354610171a215",
+      "samples": 17,
+      "program": 0,
+      "bank": 0
+    },
+    {
+      "id": "gu-harmonica",
+      "bytes": 64998,
+      "sha256": "2b5b540cbff95a7a904d49fb01379be646c9966bbcac672d3689946fa79a2ce5",
+      "samples": 6,
+      "program": 22,
+      "bank": 0
+    },
+    {
+      "id": "gu-guitar",
+      "bytes": 423374,
+      "sha256": "08072cd1bac7119934b839f5865251c0717802753c3a8ec7cb5b3255d825d49a",
+      "samples": 12,
+      "program": 24,
+      "bank": 0
+    },
+    {
+      "id": "freepats-guitar",
+      "bytes": 19822546,
+      "sha256": "0d4c08ea8c1c8924b3829084b0c8778f6d6b906f331e44fde51bc159f76b03b9",
+      "samples": 48,
+      "program": 0,
+      "bank": 0
+    },
+    {
+      "id": "vcsl-piano",
+      "bytes": 15001568,
+      "samples": 17,
+      "range": [
+        21,
+        99
+      ]
+    },
+    {
+      "id": "vcsl-harmonica",
+      "bytes": 7025110,
+      "samples": 13,
+      "range": [
+        48,
+        97
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/mrbumpy409/GeneralUser-GS/684543d5e5efaef08d02be50dcda8d552478fa60/GeneralUser-GS.sf2",
+      "file": "GeneralUser-GS.sf2",
+      "bytes": 32319396,
+      "sha256": "9575028c7a1f589f5770fccc8cff2734566af40cd26ed836944e9a5152688cfe"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrbumpy409/GeneralUser-GS/684543d5e5efaef08d02be50dcda8d552478fa60/documentation/LICENSE.txt",
+      "file": "GeneralUser-LICENSE.txt",
+      "bytes": 2317,
+      "sha256": "7b32efefdf95ce38a043799f0659853ddc00fbaa14d8c50f0aca16b9b8b405be"
+    },
+    {
+      "url": "https://freepats.zenvoid.org/Guitar/SpanishClassicalGuitar/SpanishClassicalGuitar-SF2-20190618.7z",
+      "file": "freepats.7z",
+      "bytes": 9990750,
+      "sha256": "8c192f1fc640a553199a4a43a17ae12354a6a05e3d6aad79bd43b5d29314ff51"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy.sfz",
+      "file": "vcsl-piano/original.sfz",
+      "bytes": 22469,
+      "sha256": "f2a3dbe2ed94472e107647b1f6470515f9be806af23612ca0e4293e75b0cbd58"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_C0_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_C0_v3_rr1.wav",
+      "bytes": 5063858,
+      "sha256": "5913b646c86ec1779ccd0514f2455a99bd949314f26e2d1978cacccefea9d216"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_G0_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_G0_v3_rr1.wav",
+      "bytes": 4945166,
+      "sha256": "77ccbabaef31e6c646c6da720bfaada280b17b1e2b0adacb13a283fc70bbeba8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_C1_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_C1_v3_rr1.wav",
+      "bytes": 4877642,
+      "sha256": "306f686f5257072a521b2ccabc6c755d1974d8c62748c101dbe5ea2dc68136b0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_G1_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_G1_v3_rr1.wav",
+      "bytes": 6890182,
+      "sha256": "93d2680ffa673c3d98972ecdd44bd30b8425c88bdd95f6f93bddd1550ff5ce4b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_C2_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_C2_v3_rr1.wav",
+      "bytes": 5306542,
+      "sha256": "61344dfcf7637232cc43ef9e99a2cbafb9948772dcf529c3b2ef13a497313439"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_F2_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_F2_v3_rr1.wav",
+      "bytes": 8480682,
+      "sha256": "003fa55611ee2514dbc9b0bed9af771c68b9c79a4b38d91fd741fd06c0c36256"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_A2_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_A2_v3_rr1.wav",
+      "bytes": 3481858,
+      "sha256": "93912ab2114cac36f27e2684ed1097d1356b4fb4268917f8a5176d8bd8e61b88"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_C3_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_C3_v3_rr1.wav",
+      "bytes": 2284086,
+      "sha256": "4cb2f4c181979bb3f76b454b5c26d01a7b8c91ab8703fa0b73130a4adbd74bf8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_E3_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_E3_v3_rr1.wav",
+      "bytes": 3041506,
+      "sha256": "5c1fab154ab17289ff02cfc5f646919f350f539ea5439fafba05bf3e50d1597e"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_G3_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_G3_v3_rr1.wav",
+      "bytes": 3067270,
+      "sha256": "7a423a80004126bb903ddaf69e268f4f97cd1c52601e51c99cb8e71c8ab75c99"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_B3_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_B3_v3_rr1.wav",
+      "bytes": 2051370,
+      "sha256": "936ae76cb74f40a6e2d1b85036068f589162c2129ebac78d0939ce2087c9e54d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_D4_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_D4_v3_rr1.wav",
+      "bytes": 2223094,
+      "sha256": "4d639f25c084c244c3a0d5591fef0f9072dfca6c136243572f968ff65ea3ac64"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_F4_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_F4_v3_rr1.wav",
+      "bytes": 1418434,
+      "sha256": "a7535b4db455bf89a62681cb801a47e20a55c05dad94da26d432e0c61e00f1e5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_A4_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_A4_v3_rr1.wav",
+      "bytes": 2023098,
+      "sha256": "a145589565a2200ce6bf3c79b260f993a57cc8856fc4e1011709036440599c07"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_C5_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_C5_v3_rr1.wav",
+      "bytes": 1393098,
+      "sha256": "0b97ee578f4a588aae979b51b5e03fe616c7b3a5a81436f5119ebc626b0533fa"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_G5_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_G5_v3_rr1.wav",
+      "bytes": 1040974,
+      "sha256": "79cb2683b1af0534e1ed838999d312f21a16bc216c4346d2cf79268a890d6e2b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_C6_v3_rr1.wav",
+      "file": "vcsl-piano/GrandPno_Main_Sus_C6_v3_rr1.wav",
+      "bytes": 663222,
+      "sha256": "aa67ffc72247b3ccf3acb2bea5882d9e8753e3e3602d9683024d4d1fd479ceac"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64%20-%20Normal.sfz",
+      "file": "vcsl-harmonica/original.sfz",
+      "bytes": 4070,
+      "sha256": "511d2267c1d7ee599b1e02f6632f86098a39fa1466fa1e1f5f0df0f60f90490d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_C2.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _C2.wav",
+      "bytes": 539142,
+      "sha256": "8d144f4becf88e27c3e5cc0d08e274284b80e6c94f85c42c2ad1f5b8ddb594c0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_E2.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _E2.wav",
+      "bytes": 644774,
+      "sha256": "1bd7f1ecc0dfabbe975e641ee62a58afee827f781f7729e54bf04929de47d257"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_G2.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _G2.wav",
+      "bytes": 640310,
+      "sha256": "3c85660014d0067a542780c61070a4277a11dad4f0894185ff5cbb2f8228b25f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_C3.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _C3.wav",
+      "bytes": 634830,
+      "sha256": "d5f9746ba72cbe028367df0a5c729d6a98d43a7a51f2f96203f52c199ef389a1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_E3.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _E3.wav",
+      "bytes": 709116,
+      "sha256": "96ae05be3fb88702e7667c18b5e6542b2bcd3c3b803d59e33d7a398147c4ec71"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_G3.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _G3.wav",
+      "bytes": 724836,
+      "sha256": "fc65ed75ac90c2e1d2040243cea1a5d764175aba28456457de226fe0d4ffeb36"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_C4.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _C4.wav",
+      "bytes": 644312,
+      "sha256": "0486fc4457f2fdce4ba60dba02d3dc6edf76d8225c8aa292416f6624012f60c0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_E4.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _E4.wav",
+      "bytes": 730404,
+      "sha256": "cd3a572b4aa6a99017787bab4821bb91c2be4b54278a284df3dd931e9f46852e"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_G4.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _G4.wav",
+      "bytes": 600588,
+      "sha256": "5c3eb795eb8a08f86a8fd2f4e5ac7e1721fc85f01e4075d844cda9490427c0e4"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_C5.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _C5.wav",
+      "bytes": 635444,
+      "sha256": "813acfad76990cc03a93d3055e23b1cdb5787cbb4fd1cc97393463f25eb9ef46"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_E5.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _E5.wav",
+      "bytes": 708864,
+      "sha256": "1ee7d1cd99f6a69e12b73491d74a28f513e18bfca4a33249d27fbacba8578b3b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_G5.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _G5.wav",
+      "bytes": 689304,
+      "sha256": "1a78bff929b930b903deb49aefe6b0198ac325a4102a59db50af6ba2979c9b35"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/Aerophones/Free%20Aerophones/Harmonica-Hohner-Super64/Sustains/Normal/Hohner-Super64_Normal%20_C6.wav",
+      "file": "vcsl-harmonica/Hohner-Super64_Normal _C6.wav",
+      "bytes": 594824,
+      "sha256": "da43c435e09da654ebbaefc500a4eeca59af1676bb5247f3add0a8d9879a2b60"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sgossner/VCSL/dfcf4a4918771eee884b96ad4493de82ef84daf6/README.md",
+      "file": "VCSL-README.md",
+      "bytes": 4096,
+      "sha256": "51fbe4f45edddb0585c656064eb93f9d984f932b12ace38a971ffad0d784fa7d"
+    }
+  ]
+}

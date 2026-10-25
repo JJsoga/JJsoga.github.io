@@ -30,3 +30,4 @@ Desktop.ini
 # local browser verification artifacts
 .playwright-cli/
 output/playwright/
+output/music-source/

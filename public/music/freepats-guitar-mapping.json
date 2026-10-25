@@ -1,0 +1,894 @@
+[
+  {
+    "name": "Classical guitar",
+    "program": 0,
+    "bank": 0,
+    "zones": [
+      {
+        "keyRange": {
+          "min": 29,
+          "max": 88
+        },
+        "velocityRange": {
+          "min": -1,
+          "max": 127
+        },
+        "generators": [],
+        "modulators": [],
+        "instrument": "Classical guitar",
+        "instrumentGlobalGenerators": [
+          {
+            "type": 38,
+            "value": 702
+          }
+        ],
+        "samples": [
+          {
+            "name": "G1",
+            "keyRange": {
+              "min": 29,
+              "max": 31
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 31,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 709266,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "G#1",
+            "keyRange": {
+              "min": 32,
+              "max": 32
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 32,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 669482,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A1",
+            "keyRange": {
+              "min": 33,
+              "max": 33
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 33,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 511994,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A#1",
+            "keyRange": {
+              "min": 34,
+              "max": 34
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 34,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 630924,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "B1",
+            "keyRange": {
+              "min": 35,
+              "max": 35
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 35,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 544022,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C2",
+            "keyRange": {
+              "min": 36,
+              "max": 36
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 36,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 606078,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C#2",
+            "keyRange": {
+              "min": 37,
+              "max": 37
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 37,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 508312,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "D2",
+            "keyRange": {
+              "min": 38,
+              "max": 38
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 38,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 342055,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "D#2",
+            "keyRange": {
+              "min": 39,
+              "max": 39
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 39,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 428582,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "E2",
+            "keyRange": {
+              "min": 40,
+              "max": 40
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 40,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 220426,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "F2",
+            "keyRange": {
+              "min": 41,
+              "max": 41
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 41,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 235949,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "G2",
+            "keyRange": {
+              "min": 42,
+              "max": 43
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 43,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 230777,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A2",
+            "keyRange": {
+              "min": 44,
+              "max": 45
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 45,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 248216,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "B2",
+            "keyRange": {
+              "min": 46,
+              "max": 47
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 47,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 170542,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C3",
+            "keyRange": {
+              "min": 48,
+              "max": 48
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 48,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 189436,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "D3",
+            "keyRange": {
+              "min": 49,
+              "max": 50
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 50,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 233101,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "E3",
+            "keyRange": {
+              "min": 51,
+              "max": 52
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 52,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 209474,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "F3",
+            "keyRange": {
+              "min": 53,
+              "max": 53
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 53,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 185076,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "F#3",
+            "keyRange": {
+              "min": 54,
+              "max": 54
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 54,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 172536,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "G3",
+            "keyRange": {
+              "min": 55,
+              "max": 55
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 55,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 205555,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "G#3",
+            "keyRange": {
+              "min": 56,
+              "max": 56
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 56,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 147241,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A3",
+            "keyRange": {
+              "min": 57,
+              "max": 57
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 57,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 111361,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A#3",
+            "keyRange": {
+              "min": 58,
+              "max": 58
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 58,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 109786,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "B3",
+            "keyRange": {
+              "min": 59,
+              "max": 59
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 59,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 100123,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C4",
+            "keyRange": {
+              "min": 60,
+              "max": 60
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 60,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 106619,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C#4",
+            "keyRange": {
+              "min": 61,
+              "max": 61
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 61,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 127430,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "D4",
+            "keyRange": {
+              "min": 62,
+              "max": 62
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 62,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 134833,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "D#4",
+            "keyRange": {
+              "min": 63,
+              "max": 63
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 63,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 137837,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "E4",
+            "keyRange": {
+              "min": 64,
+              "max": 64
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 64,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 165339,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "F4",
+            "keyRange": {
+              "min": 65,
+              "max": 65
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 65,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 137142,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "F#4",
+            "keyRange": {
+              "min": 66,
+              "max": 66
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 66,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 138654,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "G4",
+            "keyRange": {
+              "min": 67,
+              "max": 67
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 67,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 106277,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A4",
+            "keyRange": {
+              "min": 68,
+              "max": 69
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 69,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 181481,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A#4",
+            "keyRange": {
+              "min": 70,
+              "max": 70
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 70,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 104505,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "B4",
+            "keyRange": {
+              "min": 71,
+              "max": 71
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 71,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 83801,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C5",
+            "keyRange": {
+              "min": 72,
+              "max": 72
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 72,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 68918,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C#5",
+            "keyRange": {
+              "min": 73,
+              "max": 73
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 73,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 77360,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "D5",
+            "keyRange": {
+              "min": 74,
+              "max": 74
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 74,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 55668,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "D#5",
+            "keyRange": {
+              "min": 75,
+              "max": 75
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 75,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 55424,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "E5",
+            "keyRange": {
+              "min": 76,
+              "max": 76
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 76,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 59052,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "F5",
+            "keyRange": {
+              "min": 77,
+              "max": 77
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 77,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 68163,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "F#5",
+            "keyRange": {
+              "min": 78,
+              "max": 78
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 78,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 61000,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "G5",
+            "keyRange": {
+              "min": 79,
+              "max": 79
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 79,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 62806,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "G#5",
+            "keyRange": {
+              "min": 80,
+              "max": 80
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 80,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 41869,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A5",
+            "keyRange": {
+              "min": 81,
+              "max": 81
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 71920,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "A#5",
+            "keyRange": {
+              "min": 82,
+              "max": 82
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 82,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 57921,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "B5",
+            "keyRange": {
+              "min": 83,
+              "max": 83
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 83,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 43250,
+            "generators": [],
+            "modulators": []
+          },
+          {
+            "name": "C6",
+            "keyRange": {
+              "min": 84,
+              "max": 88
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 84,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 8,
+            "loopEnd": 39457,
+            "generators": [],
+            "modulators": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,346 @@
+{
+  "version": "dfcf4a491877-v1",
+  "fixedVelocity": 96,
+  "samples": [
+    {
+      "url": "/music/vcsl-piano/note-24.flac",
+      "root": 24.02,
+      "low": 21,
+      "high": 27,
+      "gain": 0.820690110294377,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_C0_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 24,
+      "sourceTuneCents": -2,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 1265953,
+      "channels": 2,
+      "sha256": "225c8178c73b30db8e06b988f2c5c8e1bf12b92153933382e9415790282c5746",
+      "bytes": 1308608
+    },
+    {
+      "url": "/music/vcsl-piano/note-31.flac",
+      "root": 30.91,
+      "low": 28,
+      "high": 33,
+      "gain": 0.7659284474281481,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_G0_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 31,
+      "sourceTuneCents": 9,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 1236280,
+      "channels": 2,
+      "sha256": "611525b8d0073a05acf2d8f10952d7fd146bead364e1a03ddd38b51c16080b13",
+      "bytes": 1299222
+    },
+    {
+      "url": "/music/vcsl-piano/note-36.flac",
+      "root": 36.01,
+      "low": 34,
+      "high": 39,
+      "gain": 0.7165358927861625,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_C1_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 36,
+      "sourceTuneCents": -1,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 1219399,
+      "channels": 2,
+      "sha256": "e1122e1fbfdc44f80e8cf94a60e41ebd0c794306943d512a1058b3107364bd96",
+      "bytes": 1281130
+    },
+    {
+      "url": "/music/vcsl-piano/note-43.flac",
+      "root": 42.94,
+      "low": 40,
+      "high": 45,
+      "gain": 0.5732661520095963,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_G1_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 43,
+      "sourceTuneCents": 6,
+      "sourceOffsetFrames": 150,
+      "sampleRate": 44100,
+      "frames": 1722384,
+      "channels": 2,
+      "sha256": "4188afa89f42c3fc67c72eb0abde7648bd4e5c45e76fe1cdba80d02026da8c72",
+      "bytes": 1748444
+    },
+    {
+      "url": "/music/vcsl-piano/note-48.flac",
+      "root": 47.96,
+      "low": 46,
+      "high": 50,
+      "gain": 0.7073793864403286,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_C2_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 48,
+      "sourceTuneCents": 4,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 1326624,
+      "channels": 2,
+      "sha256": "bdc60fc737caf1da52ec06eacbfae97e5b412bb144fc926d8496badb70440871",
+      "bytes": 1367445
+    },
+    {
+      "url": "/music/vcsl-piano/note-53.flac",
+      "root": 53.03,
+      "low": 51,
+      "high": 55,
+      "gain": 0.7992172519039775,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_F2_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 53,
+      "sourceTuneCents": -3,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 2120159,
+      "channels": 2,
+      "sha256": "a7ba2b17a7cdf6d0083aeac9b56513f4fae3a0882692ebaefeac669f6804d0d5",
+      "bytes": 2106304
+    },
+    {
+      "url": "/music/vcsl-piano/note-57.flac",
+      "root": 57,
+      "low": 56,
+      "high": 58,
+      "gain": 0.7941138124409466,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_A2_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 57,
+      "sourceTuneCents": 0,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 870453,
+      "channels": 2,
+      "sha256": "5138eba46763846e6a00120f2def0b354709656acfd4a9d0f519fcc6c2209e28",
+      "bytes": 901108
+    },
+    {
+      "url": "/music/vcsl-piano/note-60.flac",
+      "root": 60,
+      "low": 59,
+      "high": 62,
+      "gain": 0.8966863321021739,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_C3_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 60,
+      "sourceTuneCents": 0,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 571010,
+      "channels": 2,
+      "sha256": "c09f2e35cb2ca0d979184d74226f9ba28766c090fd2e7d817546959ed682cbf3",
+      "bytes": 597927
+    },
+    {
+      "url": "/music/vcsl-piano/note-64.flac",
+      "root": 64.01,
+      "low": 63,
+      "high": 65,
+      "gain": 0.6057530367330914,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_E3_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 64,
+      "sourceTuneCents": -1,
+      "sourceOffsetFrames": 27,
+      "sampleRate": 44100,
+      "frames": 760338,
+      "channels": 2,
+      "sha256": "0bf9a4e2ef83c1bbdf5389155398a24bbed38a47d843af1e45ce7fd486fb0035",
+      "bytes": 788974
+    },
+    {
+      "url": "/music/vcsl-piano/note-67.flac",
+      "root": 67.05,
+      "low": 66,
+      "high": 69,
+      "gain": 1.2739056095479222,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_G3_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 67,
+      "sourceTuneCents": -5,
+      "sourceOffsetFrames": 35,
+      "sampleRate": 44100,
+      "frames": 766771,
+      "channels": 2,
+      "sha256": "5ef0cc0e3f2a1580aa2c3f7e2028d9fac884210d310befbc3be9d6ee11fd4c1a",
+      "bytes": 761869
+    },
+    {
+      "url": "/music/vcsl-piano/note-71.flac",
+      "root": 71,
+      "low": 70,
+      "high": 72,
+      "gain": 0.7719340534198702,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_B3_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 71,
+      "sourceTuneCents": 0,
+      "sourceOffsetFrames": 12,
+      "sampleRate": 44100,
+      "frames": 512819,
+      "channels": 2,
+      "sha256": "591ec2727279c9dad30cd1e154c6e6d0d61342775af98c47b51550a2e29adfbe",
+      "bytes": 547344
+    },
+    {
+      "url": "/music/vcsl-piano/note-74.flac",
+      "root": 73.99,
+      "low": 73,
+      "high": 75,
+      "gain": 0.5884148166532918,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_D4_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 74,
+      "sourceTuneCents": 1,
+      "sourceOffsetFrames": 49,
+      "sampleRate": 44100,
+      "frames": 555713,
+      "channels": 2,
+      "sha256": "68b7ad4c79c0b954b8491ed323a09d6bb3182f7b03923ae0d675b68f2d4a9511",
+      "bytes": 571680
+    },
+    {
+      "url": "/music/vcsl-piano/note-77.flac",
+      "root": 77.06,
+      "low": 76,
+      "high": 79,
+      "gain": 0.9852044164137145,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_F4_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 77,
+      "sourceTuneCents": -6,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 354597,
+      "channels": 2,
+      "sha256": "10b48bf6953d0fb52b37f66129fe830cf8b287fc77180c28c8efd753b8292155",
+      "bytes": 381182
+    },
+    {
+      "url": "/music/vcsl-piano/note-81.flac",
+      "root": 80.99,
+      "low": 80,
+      "high": 82,
+      "gain": 1,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_A4_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 81,
+      "sourceTuneCents": 1,
+      "sourceOffsetFrames": 23,
+      "sampleRate": 44100,
+      "frames": 505740,
+      "channels": 2,
+      "sha256": "e13dee63ea986fd63f41df59d0192f1a1bc28834c1592959b1c808c054da5b58",
+      "bytes": 519217
+    },
+    {
+      "url": "/music/vcsl-piano/note-84.flac",
+      "root": 83.94,
+      "low": 83,
+      "high": 87,
+      "gain": 0.5938089649345069,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_C5_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 84,
+      "sourceTuneCents": 6,
+      "sourceOffsetFrames": 0,
+      "sampleRate": 44100,
+      "frames": 348263,
+      "channels": 2,
+      "sha256": "ace2b2dde566484b6feb1338e1ac451729d384062064b706e66dc22fce413767",
+      "bytes": 368546
+    },
+    {
+      "url": "/music/vcsl-piano/note-91.flac",
+      "root": 90.98,
+      "low": 88,
+      "high": 93,
+      "gain": 0.6424804247279566,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_G5_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 91,
+      "sourceTuneCents": 2,
+      "sourceOffsetFrames": 42,
+      "sampleRate": 44100,
+      "frames": 260190,
+      "channels": 2,
+      "sha256": "8611e6a85c669cc9e0bffcec9ddaa62aeb400fb65253cb1332150fdc31e65a39",
+      "bytes": 272943
+    },
+    {
+      "url": "/music/vcsl-piano/note-96.flac",
+      "root": 96.03,
+      "low": 94,
+      "high": 99,
+      "gain": 1.1011923863060795,
+      "source": "Chordophones/Zithers/Grand Piano, Kawai - Legacy/Sustains/GrandPno_Main_Sus_C6_v3_rr1.wav",
+      "sourceVelocityRange": [
+        84,
+        106
+      ],
+      "sourceRoot": 96,
+      "sourceTuneCents": -3,
+      "sourceOffsetFrames": 17,
+      "sampleRate": 44100,
+      "frames": 165777,
+      "channels": 2,
+      "sha256": "25e6e709bf7d7ae9b552f4f1a0e4ddccc3eeb95ab1a2087c545053aa9e1b1679",
+      "bytes": 179625
+    }
+  ]
+}

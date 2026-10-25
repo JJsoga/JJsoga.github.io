@@ -1,0 +1,94 @@
+---
+import '../styles/music.css';
+import { KEY_ROWS, MAJOR_KEYS, noteForCode, noteName } from '../scripts/music/keyboard';
+---
+
+<section class="music-studio" data-music tabindex="0" aria-labelledby="music-title">
+  <header>
+    <p class="section-kicker">Experiment 003</p>
+    <h2 id="music-title">A small ensemble.</h2>
+    <p>Play a phrase. Add another voice. Arrange a little piece of your own.</p>
+  </header>
+  <div class="music-start">
+    <button type="button" class="music-primary" data-music-enable>Enable sound</button>
+    <p>Sound starts only when you choose. Instrument files load as needed. Recordings stay in this tab until you leave or refresh.</p>
+  </div>
+  <p class="music-status" data-music-status role="status" aria-live="polite">Enable sound to load the first piano.</p>
+  <fieldset class="music-controls" data-music-controls disabled>
+    <legend class="music-sr">Music controls</legend>
+    <div class="music-track-tools">
+      <label>Add a voice
+        <select data-music-add-instrument><option value="piano">Piano</option><option value="harmonica">Harmonica</option><option value="guitar">Nylon guitar</option></select>
+      </label>
+      <button type="button" data-music-add>Add track</button>
+      <span class="music-hint">Up to 8 tracks · one recording at a time</span>
+    </div>
+    <div class="music-track-list" data-music-tracks role="group" aria-label="Select a performance track"></div>
+    <div class="music-performance">
+      <label>Preset for new takes<select data-music-preset></select></label>
+      <label>Instrument volume <output data-music-volume-label>70%</output><input data-music-volume type="range" min="0" max="1" step="0.01" value="0.7" /></label>
+      <label>Musical key<select data-music-key>{MAJOR_KEYS.map(key => <option value={key.tonic}>{key.name}</option>)}</select></label>
+      <div class="music-octaves" role="group" aria-label="Performance octave">
+        <button type="button" data-music-octave-down aria-label="Octave down">− Octave</button>
+        <output data-music-octave>Octave 4</output>
+        <button type="button" data-music-octave-up aria-label="Octave up">+ Octave</button>
+      </div>
+    </div>
+    <p class="music-hint" data-music-preset-info></p>
+    <p class="music-key-help" id="music-key-help">Click here or a music control, then play A–J and Q–U on an English keyboard. Hold Shift as you press for a semitone up. Hold a key to sustain; release to stop. You can also press the note buttons.</p>
+    <label class="music-touch-shift"><input type="checkbox" data-music-sharp /> Raise on-screen notes one semitone</label>
+    <div class="music-keyboard" data-music-keyboard aria-describedby="music-key-help">
+      {KEY_ROWS.map(row => <div class="music-key-row">{row.map(key =>
+        <button type="button" data-music-note={key.code} aria-label={`${key.letter}: ${noteName(noteForCode(key.code, 0, 0, false) ?? 60)}`}>
+          <kbd>{key.letter}</kbd><span data-music-note-label>{noteName(noteForCode(key.code, 0, 0, false) ?? 60)}</span>
+          <small>{key.degree + 1}</small>
+        </button>
+      )}</div>)}
+    </div>
+    <div class="music-transport" role="group" aria-label="Playback and recording">
+      <button type="button" class="music-primary" data-music-play>Play</button>
+      <button type="button" data-music-pause>Pause</button>
+      <button type="button" data-music-stop>Stop / rewind</button>
+      <button type="button" class="music-record" data-music-record>● Record selected track</button>
+      <output class="music-time" data-music-time aria-label="Playback position">0.00 s</output>
+    </div>
+    <label class="music-seek">Position in seconds<input data-music-seek type="range" min="0" max="120" step="0.01" value="0" /></label>
+    <div class="music-view-tools">
+      <label>View<select data-music-view><option value="timeline">Timeline</option><option value="visual">Visual playback</option></select></label>
+      <label data-music-shapes-control hidden>Note shapes<select data-music-shapes><option value="mixed">Stars / triangles / squares</option><option value="star">Stars</option><option value="triangle">Triangles</option><option value="square">Squares</option></select></label>
+      <p class="music-hint">Both views share the same notes and playback position.</p>
+    </div>
+    <div data-music-timeline-view>
+      <div class="music-timeline-scroll" tabindex="0" aria-label="Clip timeline in seconds; scroll horizontally for later clips">
+        <div class="music-timeline" data-music-timeline></div>
+      </div>
+      <p class="music-hint">Select a clip to arrange it. Pause before editing. Move changes its start; trim keeps the remaining notes at their original times.</p>
+      <fieldset class="music-clip-editor" data-music-editor disabled>
+        <legend data-music-clip-title>Choose a recorded clip</legend>
+        <div class="music-edit-row"><label>Clip start (s)<input type="number" data-music-clip-start min="0" max="120" step="0.01" /></label><button type="button" data-music-move>Move</button></div>
+        <div class="music-edit-row"><label>Source in (s)<input type="number" data-music-clip-in min="0" max="120" step="0.01" /></label><label>Source out (s)<input type="number" data-music-clip-out min="0" max="120" step="0.01" /></label><button type="button" data-music-trim>Trim</button></div>
+        <div class="music-edit-row"><label>Split at timeline second<input type="number" data-music-clip-split min="0" max="120" step="0.01" /></label><button type="button" data-music-split>Split</button><button type="button" data-music-delete>Delete clip</button></div>
+      </fieldset>
+    </div>
+    <div class="music-visual" data-music-visual-view hidden>
+      <canvas data-music-canvas role="img" aria-label="Notes move toward the playback marker in separate instrument lanes; duration is shown by an extension."></canvas>
+      <p class="music-hint">Pitch controls color and shape, regardless of your current key. Piano has a fine outline, harmonica a heavy outline and shadow, guitar a medium outline and soft shadow. Extensions show duration.</p>
+      <p class="music-hint" data-music-visual-description></p>
+    </div>
+  </fieldset>
+  <details class="music-about">
+    <summary>Instruments, recording rules &amp; credits</summary>
+    <p>The initial piano, harmonica and nylon guitar use GeneralUser GS through SpessaSynth. VCSL piano and Super 64 harmonica, and a FreePats classical guitar, are selectable alternatives. Presets retain their own samples and playing behavior.</p>
+    <div data-music-credits></div>
+    <p>SoundFont playback: <a href="https://spessasus.github.io/spessasynth_lib/">SpessaSynth</a>, with <a href="/licenses/SpessaSynth-Lib-Apache-2.0.txt">library</a> and <a href="/licenses/SpessaSynth-Core-Apache-2.0.txt">core</a> Apache-2.0 notices. <a href="/music/README.md">Asset preparation and source details</a>.</p>
+    <p>Each take stores actual MIDI pitches, seconds, durations, velocity 96 and its preset version and volume. Key, octave, preset and volume changes affect subsequent performance. Clips are windows onto those original notes: editing never quantizes, stretches or transposes them.</p>
+    <p>Starting or trimming into an already-held SoundFont note retriggers that note’s attack. Adjacent split pieces play continuously. Natural sample tails can extend beyond a note’s key-held duration. Pausing or leaving the page silences playback.</p>
+    <p>Limits: 8 tracks, 256 clips, 120 seconds per arrangement, 2,000 recorded notes and 64 simultaneous voices. Reduced motion keeps note positions still while preserving timing highlights. Use a current browser with Web Audio and AudioWorklet support.</p>
+  </details>
+  <noscript><p>Enable JavaScript to play and record music. No microphone is used.</p></noscript>
+</section>
+
+<script>
+  import { mountMusic } from '../scripts/music/index';
+  mountMusic();
+</script>

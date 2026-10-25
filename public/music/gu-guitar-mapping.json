@@ -1,0 +1,1308 @@
+[
+  {
+    "name": "Nylon Guitar",
+    "program": 24,
+    "bank": 0,
+    "zones": [
+      {
+        "keyRange": {
+          "min": -1,
+          "max": 127
+        },
+        "velocityRange": {
+          "min": 93,
+          "max": 127
+        },
+        "generators": [],
+        "modulators": [],
+        "instrument": "Nylon Guitar",
+        "instrumentGlobalGenerators": [
+          {
+            "type": 36,
+            "value": 4569
+          },
+          {
+            "type": 37,
+            "value": 960
+          },
+          {
+            "type": 38,
+            "value": -884
+          },
+          {
+            "type": 40,
+            "value": 101
+          },
+          {
+            "type": 54,
+            "value": 1
+          }
+        ],
+        "samples": [
+          {
+            "name": "Nylon Guitar-F2",
+            "keyRange": {
+              "min": 0,
+              "max": 44
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 53,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 23346,
+            "loopEnd": 23599,
+            "generators": [
+              {
+                "type": 35,
+                "value": 520
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A#2",
+            "keyRange": {
+              "min": 45,
+              "max": 48
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 58,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 22552,
+            "loopEnd": 22742,
+            "generators": [
+              {
+                "type": 35,
+                "value": 242
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D3",
+            "keyRange": {
+              "min": 49,
+              "max": 50
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 62,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 33315,
+            "loopEnd": 33465,
+            "generators": [
+              {
+                "type": 35,
+                "value": 919
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D#3",
+            "keyRange": {
+              "min": 51,
+              "max": 53
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 63,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 25514,
+            "loopEnd": 25797,
+            "generators": [
+              {
+                "type": 35,
+                "value": 643
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G3",
+            "keyRange": {
+              "min": 54,
+              "max": 55
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 67,
+            "correctionCents": -6,
+            "sampleRate": 44100,
+            "loopStart": 14679,
+            "loopEnd": 14791,
+            "generators": [
+              {
+                "type": 35,
+                "value": -35
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G#3",
+            "keyRange": {
+              "min": 56,
+              "max": 57
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 68,
+            "correctionCents": -10,
+            "sampleRate": 44100,
+            "loopStart": 12516,
+            "loopEnd": 12727,
+            "generators": [
+              {
+                "type": 35,
+                "value": -545
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-B3",
+            "keyRange": {
+              "min": 58,
+              "max": 59
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 71,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 19038,
+            "loopEnd": 19217,
+            "generators": [
+              {
+                "type": 35,
+                "value": 181
+              },
+              {
+                "type": 48,
+                "value": 40
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-C4",
+            "keyRange": {
+              "min": 60,
+              "max": 62
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 72,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 16608,
+            "loopEnd": 16776,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-E4",
+            "keyRange": {
+              "min": 63,
+              "max": 64
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 76,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 11461,
+            "loopEnd": 11595,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1523
+              },
+              {
+                "type": 48,
+                "value": 30
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-F4",
+            "keyRange": {
+              "min": 65,
+              "max": 67
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 77,
+            "correctionCents": -1,
+            "sampleRate": 44100,
+            "loopStart": 13501,
+            "loopEnd": 13564,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4",
+            "keyRange": {
+              "min": 68,
+              "max": 99
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 11499,
+            "loopEnd": 11599,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4xt",
+            "keyRange": {
+              "min": 100,
+              "max": 108
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 11025,
+            "loopStart": 2874,
+            "loopEnd": 2899,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          }
+        ]
+      },
+      {
+        "keyRange": {
+          "min": -1,
+          "max": 127
+        },
+        "velocityRange": {
+          "min": 69,
+          "max": 92
+        },
+        "generators": [
+          {
+            "type": 8,
+            "value": -1481
+          }
+        ],
+        "modulators": [],
+        "instrument": "Nylon Guitar",
+        "instrumentGlobalGenerators": [
+          {
+            "type": 36,
+            "value": 4569
+          },
+          {
+            "type": 37,
+            "value": 960
+          },
+          {
+            "type": 38,
+            "value": -884
+          },
+          {
+            "type": 40,
+            "value": 101
+          },
+          {
+            "type": 54,
+            "value": 1
+          }
+        ],
+        "samples": [
+          {
+            "name": "Nylon Guitar-F2",
+            "keyRange": {
+              "min": 0,
+              "max": 44
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 53,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 23346,
+            "loopEnd": 23599,
+            "generators": [
+              {
+                "type": 35,
+                "value": 520
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A#2",
+            "keyRange": {
+              "min": 45,
+              "max": 48
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 58,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 22552,
+            "loopEnd": 22742,
+            "generators": [
+              {
+                "type": 35,
+                "value": 242
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D3",
+            "keyRange": {
+              "min": 49,
+              "max": 50
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 62,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 33315,
+            "loopEnd": 33465,
+            "generators": [
+              {
+                "type": 35,
+                "value": 919
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D#3",
+            "keyRange": {
+              "min": 51,
+              "max": 53
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 63,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 25514,
+            "loopEnd": 25797,
+            "generators": [
+              {
+                "type": 35,
+                "value": 643
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G3",
+            "keyRange": {
+              "min": 54,
+              "max": 55
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 67,
+            "correctionCents": -6,
+            "sampleRate": 44100,
+            "loopStart": 14679,
+            "loopEnd": 14791,
+            "generators": [
+              {
+                "type": 35,
+                "value": -35
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G#3",
+            "keyRange": {
+              "min": 56,
+              "max": 57
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 68,
+            "correctionCents": -10,
+            "sampleRate": 44100,
+            "loopStart": 12516,
+            "loopEnd": 12727,
+            "generators": [
+              {
+                "type": 35,
+                "value": -545
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-B3",
+            "keyRange": {
+              "min": 58,
+              "max": 59
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 71,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 19038,
+            "loopEnd": 19217,
+            "generators": [
+              {
+                "type": 35,
+                "value": 181
+              },
+              {
+                "type": 48,
+                "value": 40
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-C4",
+            "keyRange": {
+              "min": 60,
+              "max": 62
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 72,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 16608,
+            "loopEnd": 16776,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-E4",
+            "keyRange": {
+              "min": 63,
+              "max": 64
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 76,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 11461,
+            "loopEnd": 11595,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1523
+              },
+              {
+                "type": 48,
+                "value": 30
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-F4",
+            "keyRange": {
+              "min": 65,
+              "max": 67
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 77,
+            "correctionCents": -1,
+            "sampleRate": 44100,
+            "loopStart": 13501,
+            "loopEnd": 13564,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4",
+            "keyRange": {
+              "min": 68,
+              "max": 99
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 11499,
+            "loopEnd": 11599,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4xt",
+            "keyRange": {
+              "min": 100,
+              "max": 108
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 11025,
+            "loopStart": 2874,
+            "loopEnd": 2899,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          }
+        ]
+      },
+      {
+        "keyRange": {
+          "min": -1,
+          "max": 127
+        },
+        "velocityRange": {
+          "min": 47,
+          "max": 68
+        },
+        "generators": [
+          {
+            "type": 8,
+            "value": -2400
+          }
+        ],
+        "modulators": [],
+        "instrument": "Nylon Guitar",
+        "instrumentGlobalGenerators": [
+          {
+            "type": 36,
+            "value": 4569
+          },
+          {
+            "type": 37,
+            "value": 960
+          },
+          {
+            "type": 38,
+            "value": -884
+          },
+          {
+            "type": 40,
+            "value": 101
+          },
+          {
+            "type": 54,
+            "value": 1
+          }
+        ],
+        "samples": [
+          {
+            "name": "Nylon Guitar-F2",
+            "keyRange": {
+              "min": 0,
+              "max": 44
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 53,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 23346,
+            "loopEnd": 23599,
+            "generators": [
+              {
+                "type": 35,
+                "value": 520
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A#2",
+            "keyRange": {
+              "min": 45,
+              "max": 48
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 58,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 22552,
+            "loopEnd": 22742,
+            "generators": [
+              {
+                "type": 35,
+                "value": 242
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D3",
+            "keyRange": {
+              "min": 49,
+              "max": 50
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 62,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 33315,
+            "loopEnd": 33465,
+            "generators": [
+              {
+                "type": 35,
+                "value": 919
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D#3",
+            "keyRange": {
+              "min": 51,
+              "max": 53
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 63,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 25514,
+            "loopEnd": 25797,
+            "generators": [
+              {
+                "type": 35,
+                "value": 643
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G3",
+            "keyRange": {
+              "min": 54,
+              "max": 55
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 67,
+            "correctionCents": -6,
+            "sampleRate": 44100,
+            "loopStart": 14679,
+            "loopEnd": 14791,
+            "generators": [
+              {
+                "type": 35,
+                "value": -35
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G#3",
+            "keyRange": {
+              "min": 56,
+              "max": 57
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 68,
+            "correctionCents": -10,
+            "sampleRate": 44100,
+            "loopStart": 12516,
+            "loopEnd": 12727,
+            "generators": [
+              {
+                "type": 35,
+                "value": -545
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-B3",
+            "keyRange": {
+              "min": 58,
+              "max": 59
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 71,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 19038,
+            "loopEnd": 19217,
+            "generators": [
+              {
+                "type": 35,
+                "value": 181
+              },
+              {
+                "type": 48,
+                "value": 40
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-C4",
+            "keyRange": {
+              "min": 60,
+              "max": 62
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 72,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 16608,
+            "loopEnd": 16776,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-E4",
+            "keyRange": {
+              "min": 63,
+              "max": 64
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 76,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 11461,
+            "loopEnd": 11595,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1523
+              },
+              {
+                "type": 48,
+                "value": 30
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-F4",
+            "keyRange": {
+              "min": 65,
+              "max": 67
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 77,
+            "correctionCents": -1,
+            "sampleRate": 44100,
+            "loopStart": 13501,
+            "loopEnd": 13564,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4",
+            "keyRange": {
+              "min": 68,
+              "max": 99
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 11499,
+            "loopEnd": 11599,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4xt",
+            "keyRange": {
+              "min": 100,
+              "max": 108
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 11025,
+            "loopStart": 2874,
+            "loopEnd": 2899,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          }
+        ]
+      },
+      {
+        "keyRange": {
+          "min": -1,
+          "max": 127
+        },
+        "velocityRange": {
+          "min": 0,
+          "max": 46
+        },
+        "generators": [
+          {
+            "type": 8,
+            "value": -3284
+          }
+        ],
+        "modulators": [],
+        "instrument": "Nylon Guitar",
+        "instrumentGlobalGenerators": [
+          {
+            "type": 36,
+            "value": 4569
+          },
+          {
+            "type": 37,
+            "value": 960
+          },
+          {
+            "type": 38,
+            "value": -884
+          },
+          {
+            "type": 40,
+            "value": 101
+          },
+          {
+            "type": 54,
+            "value": 1
+          }
+        ],
+        "samples": [
+          {
+            "name": "Nylon Guitar-F2",
+            "keyRange": {
+              "min": 0,
+              "max": 44
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 53,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 23346,
+            "loopEnd": 23599,
+            "generators": [
+              {
+                "type": 35,
+                "value": 520
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A#2",
+            "keyRange": {
+              "min": 45,
+              "max": 48
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 58,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 22552,
+            "loopEnd": 22742,
+            "generators": [
+              {
+                "type": 35,
+                "value": 242
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D3",
+            "keyRange": {
+              "min": 49,
+              "max": 50
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 62,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 33315,
+            "loopEnd": 33465,
+            "generators": [
+              {
+                "type": 35,
+                "value": 919
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-D#3",
+            "keyRange": {
+              "min": 51,
+              "max": 53
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 63,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 25514,
+            "loopEnd": 25797,
+            "generators": [
+              {
+                "type": 35,
+                "value": 643
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G3",
+            "keyRange": {
+              "min": 54,
+              "max": 55
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 67,
+            "correctionCents": -6,
+            "sampleRate": 44100,
+            "loopStart": 14679,
+            "loopEnd": 14791,
+            "generators": [
+              {
+                "type": 35,
+                "value": -35
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-G#3",
+            "keyRange": {
+              "min": 56,
+              "max": 57
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 68,
+            "correctionCents": -10,
+            "sampleRate": 44100,
+            "loopStart": 12516,
+            "loopEnd": 12727,
+            "generators": [
+              {
+                "type": 35,
+                "value": -545
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-B3",
+            "keyRange": {
+              "min": 58,
+              "max": 59
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 71,
+            "correctionCents": 1,
+            "sampleRate": 44100,
+            "loopStart": 19038,
+            "loopEnd": 19217,
+            "generators": [
+              {
+                "type": 35,
+                "value": 181
+              },
+              {
+                "type": 48,
+                "value": 40
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-C4",
+            "keyRange": {
+              "min": 60,
+              "max": 62
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 72,
+            "correctionCents": 0,
+            "sampleRate": 44100,
+            "loopStart": 16608,
+            "loopEnd": 16776,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-E4",
+            "keyRange": {
+              "min": 63,
+              "max": 64
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 76,
+            "correctionCents": 7,
+            "sampleRate": 44100,
+            "loopStart": 11461,
+            "loopEnd": 11595,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1523
+              },
+              {
+                "type": 48,
+                "value": 30
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-F4",
+            "keyRange": {
+              "min": 65,
+              "max": 67
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 77,
+            "correctionCents": -1,
+            "sampleRate": 44100,
+            "loopStart": 13501,
+            "loopEnd": 13564,
+            "generators": [
+              {
+                "type": 35,
+                "value": -940
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4",
+            "keyRange": {
+              "min": 68,
+              "max": 99
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 44100,
+            "loopStart": 11499,
+            "loopEnd": 11599,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          },
+          {
+            "name": "Nylon Guitar-A4xt",
+            "keyRange": {
+              "min": 100,
+              "max": 108
+            },
+            "velocityRange": {
+              "min": -1,
+              "max": 127
+            },
+            "root": 81,
+            "correctionCents": -2,
+            "sampleRate": 11025,
+            "loopStart": 2874,
+            "loopEnd": 2899,
+            "generators": [
+              {
+                "type": 35,
+                "value": -1207
+              }
+            ],
+            "modulators": []
+          }
+        ]
+      }
+    ]
+  }
+]
