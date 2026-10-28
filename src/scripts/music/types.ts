@@ -26,6 +26,7 @@ export interface SampleZone {
   loopStart?: number; loopEnd?: number; gain?: number;
 }
 export interface SampleManifest { samples: SampleZone[]; }
+export type DecodedSample = SampleZone & { buffer: AudioBuffer };
 export interface Note { id: string; pitch: number; start: number; duration: number; velocity: number; }
 export interface Take { id: string; preset: PresetRef; gain: number; notes: Note[]; duration: number; }
 export interface Clip { id: string; takeId: string; start: number; sourceStart: number; duration: number; }

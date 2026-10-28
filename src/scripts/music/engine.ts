@@ -1,9 +1,9 @@
 /// <reference types="vite/client" />
 import { WorkletSynthesizer } from 'spessasynth_lib';
 import workletUrl from 'spessasynth_lib/dist/spessasynth_processor.min.js?url';
-import { MUSIC_CONFIG, type Preset, type SampleManifest, type SampleZone } from './types';
+import { MUSIC_CONFIG, type DecodedSample, type Preset, type SampleManifest } from './types';
 
-type SampleResource = SampleZone & { buffer: AudioBuffer };
+type SampleResource = DecodedSample;
 type LoadedPreset = { kind: 'soundfont'; bank: number } | { kind: 'samples'; zones: SampleResource[] };
 type SamplePart = { source: AudioBufferSourceNode; envelope: GainNode; level: number };
 type Voice = {
@@ -37,6 +37,12 @@ export class MusicEngine {
 
   get ready() { return !this.destroyed && !!this.synth && this.context?.state === 'running'; }
   get currentTime() { return this.context?.currentTime ?? 0; }
+
+  /** Read-only buffer reuse for offline export; never exposes live voices or nodes. */
+  getCachedSamples(preset: Preset): readonly DecodedSample[] | undefined {
+    const resource = this.loaded.get(presetKey(preset));
+    return resource?.kind === 'samples' ? resource.zones : undefined;
+  }
 
   /** Call directly from a user gesture; no context or instrument is created on page load. */
   async enable(): Promise<void> {

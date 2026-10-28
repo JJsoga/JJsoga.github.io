@@ -61,6 +61,13 @@
 .music-visual canvas { display:block;width:100%;min-height:220px;border:1px solid var(--rule);border-radius:.35rem;background:var(--surface); }
 .music-visual p { margin-top:.6rem; }
 .music-about { margin-top:1.2rem; }
+.music-export { margin-top:1.5rem;padding:1rem;border:1px solid var(--rule);border-radius:.35rem; }
+.music-export h3 { margin:0 0 .5rem;font-size:1rem;font-weight:500; }
+.music-export-actions,.music-export-downloads { display:flex;flex-wrap:wrap;gap:.6rem;align-items:center; }
+.music-export progress { display:block;width:100%;height:.7rem;margin:1rem 0;accent-color:var(--accent); }
+.music-export-downloads a { display:inline-block;padding:.7rem .85rem;border:1px solid var(--accent);border-radius:.3rem;color:var(--accent);font-size:.8rem;overflow-wrap:anywhere; }
+.music-export-downloads a:focus-visible { outline:3px solid var(--accent);outline-offset:3px; }
+.music-export .music-hint { margin:.65rem 0; }
 .music-about summary { padding:.7rem 0;font-size:.85rem;cursor:pointer; }
 .music-about p { margin:.7rem 0; }
 .music-credits { margin:.5rem 0;padding:.8rem;border:1px solid var(--rule);border-radius:.3rem; }

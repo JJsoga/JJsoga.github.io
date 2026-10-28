@@ -232,6 +232,59 @@ One audio clock keeps accompaniment and the new take aligned; visual animation
 never drives sound scheduling. The principal remaining limits are tab-only storage
 and retriggering when seeking into held SoundFont notes.
 
+## Audio export from Play
+
+After finishing a take, **Prepare full mix · WAV** renders the complete arrangement.
+**Prepare separate tracks · ZIP** also offers the mix and a ZIP containing one WAV
+for each track with audible notes. Choose the resulting download link to save it;
+the browser is not asked to start several downloads automatically. Export is local,
+with progress, cancellation and retry. Playback pauses at its current position.
+Changing the arrangement invalidates old download links; changing performance key,
+octave, preset or volume does not rewrite existing takes or their exported sound.
+
+Both outputs use stereo 44.1-kHz 16-bit PCM. Every stem starts at timeline zero and
+has the same sample count, including leading silence and a common 8–12-second release
+tail (the existing bounded release policy). Empty and zero-recorded-volume tracks
+are omitted explicitly. The full arrangement determines the length, so intentionally
+silent clip windows are preserved. Preset IDs/versions, actual pitches, velocities,
+recorded gains and moved/trimmed/split source windows come from `flattenEvents`.
+Unavailable versions fail instead of substituting a different sound. SoundFont
+mid-note trims retain the existing attack-retrigger limitation.
+
+`export.ts` renders sequential stems, accumulates the mix, then prepares stem files
+in a second pass when requested. This avoids retaining all stems as floating-point
+audio. `export-soundfont.worker.ts` uses the pinned SpessaSynth Core with independent
+note channels, exact sample-boundary timing and native release envelopes; sample
+presets use an inaudible `OfflineAudioContext` with the same tuning, loops and
+envelopes as live playback. Already decoded sample buffers are reused. Instrument
+downloads/parsed SoundFonts are cached within the export job. WAV encoding and ZIP
+CRC/packaging run in `export-pack.worker.ts`. Workers are terminated on cancellation,
+failure, completion or navigation, and download URLs are revoked on replacement or
+teardown. A native sample render already in progress disconnects on cancellation
+and its bounded result is discarded.
+
+The first pass measures both the mix and individual stem peaks. If all peaks are
+at most 1, recorded levels are unchanged. Otherwise every output receives the same
+gain `0.98 / maximumPeak`; the UI reports the reduction in dB. There is no individual
+track normalization, so summing the stems at unity gain reconstructs the mix within
+16-bit rounding. The ZIP's `export-info.json` records duration, sample count, common
+gain, omitted tracks and each track's preset versions. Preparation uses the existing
+8-track/120-second/2,000-note bounds, at most 132 output seconds and a 200-MiB archive
+limit. Unsupported SoundFont polyphony or release tails fail explicitly rather than
+silently dropping notes. Long multitrack exports can still require substantial memory
+on a phone; cancelling releases the job without changing the recording.
+
+Verification commands: `npm run test:music-export` checks immutable planning, WAV
+headers/interleaving, ZIP CRC/directory records, aligned stems, common attenuation,
+source version validation, deterministic SoundFont passes, independent unisons,
+release tails and error cases. `scripts/check-music-export-browser.js` exercises
+actual downloaded files, PCM stem sums, sample presets, cancellation/retry and
+teardown through the production UI. Existing music checks remain the baseline.
+There is no training/test split or data-dependent subset selection. The material
+implementation choices are the WAV/ZIP formats, common output length, explicit
+empty-track omission, shared peak attenuation and sequential offline rendering;
+the recording and clip model is unchanged.
+
 ## Edit content
 
 - `src/data/profile.ts` contains the name, biography, education, interests, contact links, coursework, awards, navigation, and default metadata.

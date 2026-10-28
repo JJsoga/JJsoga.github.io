@@ -76,6 +76,19 @@ import { KEY_ROWS, MAJOR_KEYS, noteForCode, noteName } from '../scripts/music/ke
       <p class="music-hint" data-music-visual-description></p>
     </div>
   </fieldset>
+  <section class="music-export" aria-labelledby="music-export-title">
+    <h3 id="music-export-title">Save your music</h3>
+    <p class="music-hint">Finish your take, then export the arranged music. Download a full mix as WAV, or a ZIP with a separate WAV for every non-empty track. All track files start at zero and have the same length, including release tails.</p>
+    <div class="music-export-actions">
+      <button type="button" data-music-export-mix disabled>Prepare full mix · WAV</button>
+      <button type="button" data-music-export-stems disabled>Prepare separate tracks · ZIP</button>
+      <button type="button" data-music-export-cancel hidden>Cancel export</button>
+    </div>
+    <progress data-music-export-progress max="1" value="0" aria-label="Audio export progress" hidden></progress>
+    <p class="music-hint" data-music-export-status role="status" aria-live="polite">Record some notes to export audio. Files are prepared locally; nothing is uploaded.</p>
+    <div class="music-export-downloads" data-music-export-downloads></div>
+    <p class="music-hint">Stereo WAV · 44.1 kHz · 16 bit. If peaks would distort, the same volume reduction is applied to the mix and every track; individual tracks are never normalized. Preparing separate tracks also provides the full mix.</p>
+  </section>
   <details class="music-about">
     <summary>Instruments, recording rules &amp; credits</summary>
     <p>The initial piano, harmonica and nylon guitar use GeneralUser GS through SpessaSynth. VCSL piano and Super 64 harmonica, and a FreePats classical guitar, are selectable alternatives. Presets retain their own samples and playing behavior.</p>

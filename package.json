@@ -13,6 +13,7 @@
     "test:word-dice": "node scripts/check-word-dice.mjs",
     "test:metadata": "node scripts/check-site-metadata.mjs",
     "test:music": "node scripts/check-music.mjs && node scripts/check-music-assets.mjs",
+    "test:music-export": "node scripts/check-music-export.mjs && node scripts/check-music-soundfont-export.mjs",
     "music:prepare": "node scripts/prepare-music-assets.mjs",
     "icons": "node scripts/generate-favicon.mjs",
     "astro": "astro"

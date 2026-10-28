@@ -4,6 +4,7 @@ import { PRESETS, presetById } from './presets';
 import { drawVisual, renderTimeline, updateTimelinePosition } from './views';
 import { MUSIC_CONFIG, type Clip, type Instrument, type Note, type PlaybackEvent, type Preset, type Shape, type Take } from './types';
 import type { MusicEngine } from './engine';
+import type { ExportMode } from './export';
 
 type Held = { id: string; code: string; pitch: number; recordStart?: number };
 type Recording = { trackId: string; start: number; preset: Preset; gain: number; notes: Note[] };
@@ -31,6 +32,18 @@ export function createMusic(root: HTMLElement) {
   let position = 0, anchorTime = 0, anchorPosition = 0, recording: Recording | undefined;
   let events: PlaybackEvent[] = [], tasks: Task[] = [], taskIndex = 0, timer = 0, frame = 0;
   let session = 0, capacityNotice = false, restoreFrame = 0;
+  let exportJob: AbortController | undefined;
+  const exportUrls: string[] = [];
+  const exportStatus = find('export-status'), exportDownloads = find('export-downloads');
+  const exportProgress = find<HTMLProgressElement>('export-progress');
+  const clearExports = () => {
+    for (const url of exportUrls.splice(0)) URL.revokeObjectURL(url);
+    exportDownloads.replaceChildren();
+  };
+  const invalidateExports = () => {
+    clearExports();
+    exportStatus.textContent = 'Arrangement updated. Prepare new audio files when you are ready.';
+  };
   const track = () => project.tracks.find(item => item.id === selectedTrackId)!;
   const currentPreset = () => presetById(track().presetId);
   const positionNow = () => state === 'stopped' ? position : Math.min(MUSIC_CONFIG.maxDuration, Math.max(anchorPosition, anchorPosition + (engine!.currentTime - anchorTime)));
@@ -82,6 +95,8 @@ export function createMusic(root: HTMLElement) {
     recordButton.textContent = state === 'recording' ? '■ Finish take' : '● Record selected track';
     recordButton.dataset.recording = String(state === 'recording');
     seek.disabled = state === 'recording';
+    for (const mode of ['mix', 'stems']) find<HTMLButtonElement>(`export-${mode}`).disabled = busy || state === 'recording' || !events.some(event => event.gain > 0);
+    find<HTMLButtonElement>('export-cancel').hidden = !exportJob;
     refreshKeys(); renderEditor();
   };
   const renderProject = () => {
@@ -162,11 +177,12 @@ export function createMusic(root: HTMLElement) {
     const clip: Clip = { id: uid('clip'), takeId: take.id, start: takeRecord.start, sourceStart: 0, duration };
     project = { ...project, takes: { ...project.takes, [take.id]: take }, tracks: project.tracks.map(item => item.id === takeRecord.trackId ? { ...item, clips: [...item.clips, clip] } : item) };
     selectedClip = clip.id;
+    invalidateExports();
     announce(`Recorded ${take.notes.length} notes with ${takeRecord.preset.name}. Select the clip to arrange it, or rewind and add another track.`);
   };
   const halt = (rewind = false, message?: string) => {
     if (destroyed) return;
-    ++operation; finishRecording(); releaseAll(); position = rewind ? 0 : positionNow(); state = 'stopped'; busy = false;
+    ++operation; finishRecording(); releaseAll(); position = rewind ? 0 : positionNow(); state = 'stopped'; busy = !!exportJob;
     clearInterval(timer); timer = 0; cancelAnimationFrame(frame); frame = 0; tasks = []; taskIndex = 0; engine?.stopAll();
     renderProject(); if (message) announce(message);
   };
@@ -296,6 +312,46 @@ export function createMusic(root: HTMLElement) {
   on(find('record'), 'click', () => { if (state === 'recording') halt(); else void run(true); });
   on(find('pause'), 'click', () => halt(false, 'Paused.'));
   on(find('stop'), 'click', () => halt(true, 'Stopped at the beginning.'));
+  const prepareExport = async (mode: ExportMode) => {
+    if (destroyed || busy || state === 'recording' || !events.some(event => event.gain > 0)) return;
+    halt(false, 'Playback paused for audio export. Your arrangement is unchanged.');
+    const snapshot = structuredClone(project), job = new AbortController();
+    exportJob = job; busy = true; clearExports();
+    exportProgress.value = 0; exportProgress.hidden = false;
+    exportStatus.textContent = 'Preparing local audio export…'; refreshControls();
+    try {
+      const { exportMusic } = await import('./export');
+      const result = await exportMusic(snapshot, mode, {
+        signal: job.signal, cachedSamples: preset => engine?.getCachedSamples(preset),
+        onProgress: value => {
+          if (destroyed || exportJob !== job || job.signal.aborted) return;
+          exportProgress.value = value.progress;
+          exportStatus.textContent = `${value.message} ${Math.round(value.progress * 100)}%`;
+        },
+      });
+      if (destroyed || job.signal.aborted || exportJob !== job) return;
+      const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const offer = (kind: 'mix' | 'stems', blob: Blob, extension: string, label: string) => {
+        const link = document.createElement('a'), url = URL.createObjectURL(blob); exportUrls.push(url);
+        link.href = url; link.download = `jjsoga-play-${stamp}-${kind}.${extension}`;
+        link.dataset.musicExportFile = kind; link.textContent = `${label} (${(blob.size / 1048576).toFixed(1)} MB)`;
+        exportDownloads.append(link);
+      };
+      offer('mix', result.mix, 'wav', 'Download full mix');
+      if (result.stems) offer('stems', result.stems, 'zip', 'Download separate tracks');
+      const reduction = result.gain < 1 ? ` All files reduced by ${(-20 * Math.log10(result.gain)).toFixed(1)} dB to prevent clipping.` : ' Recorded levels preserved.';
+      exportStatus.textContent = `Ready: ${result.duration.toFixed(2)} seconds including tails, ${result.tracks} tracks.${result.omittedTracks ? ` ${result.omittedTracks} empty or muted tracks omitted.` : ''}${reduction} Choose a download below.`;
+    } catch (error) {
+      if (!destroyed && exportJob === job) exportStatus.textContent = job.signal.aborted
+        ? 'Export cancelled. Your recording is unchanged; you can try again.'
+        : `Export failed: ${error instanceof Error ? error.message : 'Please try again.'} Your recording is unchanged.`;
+    } finally {
+      if (exportJob === job) { exportJob = undefined; busy = false; if (!destroyed) { exportProgress.hidden = true; refreshControls(); } }
+    }
+  };
+  on(find('export-mix'), 'click', () => { void prepareExport('mix'); });
+  on(find('export-stems'), 'click', () => { void prepareExport('stems'); });
+  on(find('export-cancel'), 'click', () => { exportStatus.textContent = 'Cancelling export…'; exportJob?.abort(); });
   on(seek, 'input', () => { const target = Number(seek.value); const resume = state === 'playing'; halt(); position = target; paint(); if (resume) void run(false); });
   on(viewSelect, 'change', () => {
     find('timeline-view').hidden = viewSelect.value !== 'timeline'; find('visual-view').hidden = viewSelect.value !== 'visual';
@@ -323,6 +379,7 @@ export function createMusic(root: HTMLElement) {
       // Reclaim takes with no clips; retained takes and their original notes are never rewritten.
       const used = new Set(project.tracks.flatMap(item => item.clips.map(clip => clip.takeId)));
       project = { ...project, takes: Object.fromEntries(Object.entries(project.takes).filter(([id]) => used.has(id))) };
+      invalidateExports();
       renderProject(); announce(`Clip ${action === 'delete' ? 'deleted' : action === 'split' ? 'split' : action === 'trim' ? 'trimmed' : 'moved'}. Original note pitches, timing and volume are preserved.`);
     } catch (error) { announce((error as Error).message); }
   };
@@ -357,11 +414,11 @@ export function createMusic(root: HTMLElement) {
   };
   const api = {
     refresh,
-    getSnapshot: () => ({ project: structuredClone(project), position: positionNow(), state, selectedTrackId, selectedClip, busy,
+    getSnapshot: () => ({ project: structuredClone(project), position: positionNow(), state, selectedTrackId, selectedClip, busy, exporting: !!exportJob,
       held: [...held.values()].map(note => ({ ...note })), engine: engine ? { ...engine.getSnapshot(), level: engine.getLevel() } : null,
       scheduled: tasks.length - taskIndex, frameActive: frame !== 0, schedulerActive: timer !== 0 }),
     destroy() {
-      if (destroyed) return; halt(); destroyed = true; ++operation;
+      if (destroyed) return; exportJob?.abort(); clearExports(); halt(); destroyed = true; ++operation;
       cancelAnimationFrame(restoreFrame); restoreFrame = 0;
       abort.abort(); observer.disconnect(); controls.disabled = true; delete root.dataset.musicReady;
       void engine?.destroy();
