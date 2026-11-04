@@ -39,15 +39,15 @@ export type BreathDiagramCopy = {
 	ariaLabel: string;
 	title: string;
 	description: string;
-	microphones: string;
+	signals: string;
 	preprocessing: string;
 	preprocessingDetail: string;
 	features: string;
 	featuresDetail: string;
 	model: string;
-	normalization: string;
-	personalization: string;
-	personalizationDetail: string;
+	evaluation: string;
+	experiments: string;
+	experimentsDetail: string;
 	output: string;
 };
 
@@ -125,16 +125,16 @@ export const projectContentByLocale = {
 			},
 			{
 				number: '02',
-				title: 'Wearable Breathing Sensing for Human-Centered Computing',
+				title: 'Breathing Sensing for HCI',
 				institution: 'University of Chicago',
 				descriptor:
-					'Exploring cognitive-load sensing through wearable breathing signals in an eyewear form factor.',
+					'Physiological sensing and machine learning for cognitive-state estimation.',
 				description:
-					'Contributed to a human-centered sensing project using wearable breathing signals. Developed signal-processing and machine-learning components for physiological feature extraction and cognitive-load estimation, while investigating user variability and practical sensing challenges.',
+					'Contributed to a human-centered computing research project exploring physiological sensing and machine learning for cognitive-state estimation in everyday environments. Developed signal-processing and machine-learning components for physiological feature extraction and cognitive-load estimation, while investigating user variability and practical sensing challenges.',
 				fields: [
 					{
 						label: 'Contribution',
-						text: 'Signal-processing and machine-learning components for extracting physiological features and estimating cognitive load from wearable sensor data.',
+						text: 'Signal-processing and machine-learning components for extracting physiological features and estimating cognitive load from sensor data.',
 					},
 					{
 						label: 'Evaluation',
@@ -148,19 +148,19 @@ export const projectContentByLocale = {
 				keywords: ['Statistical ML', 'Signal Processing', 'Cross-participant Evaluation', 'Human-Centered Computing'],
 				diagram: 'breath',
 				diagramCopy: {
-					ariaLabel: 'Wearable Breathing Sensing simplified research workflow',
-					title: 'Wearable Breathing Sensing workflow',
+					ariaLabel: 'Breathing Sensing simplified research workflow',
+					title: 'Breathing Sensing workflow',
 					description:
-						'Wearable breathing signals are processed into physiological features for machine-learning modeling, followed by cross-participant evaluation, controlled robustness experiments, and a real-time sensing prototype.',
-					microphones: 'Wearable breathing signals',
+						'Physiological signals are processed into features for machine-learning modeling, followed by cross-participant evaluation, controlled experiments, and a real-time sensing prototype.',
+					signals: 'Physiological signals',
 					preprocessing: 'Signal processing',
 					preprocessingDetail: 'conditioning · representation',
 					features: 'Physiological features',
-					featuresDetail: 'breathing patterns · user variability',
+					featuresDetail: 'individual variation · environment',
 					model: 'Machine-learning model',
-					normalization: 'Cross-participant eval.',
-					personalization: 'Controlled experiments',
-					personalizationDetail: 'reliability · robustness',
+					evaluation: 'Cross-participant eval.',
+					experiments: 'Controlled experiments',
+					experimentsDetail: 'reliability · robustness',
 					output: 'Real-time prototype',
 				},
 			},
@@ -224,15 +224,15 @@ export const projectContentByLocale = {
 			},
 			{
 				number: '02',
-				title: '面向人本计算的可穿戴呼吸感知',
+				title: '面向人机交互的呼吸感知',
 				institution: '芝加哥大学',
-				descriptor: '通过眼镜形态的可穿戴呼吸信号探索认知负荷感知。',
+				descriptor: '利用生理感知与机器学习探索认知状态估计。',
 				description:
-					'参与面向人本计算的可穿戴呼吸感知研究，开发用于生理特征提取与认知负荷估计的信号处理和机器学习组件，并分析用户差异及真实场景中的感知挑战。',
+					'参与面向人机交互的生理感知研究，探索利用机器学习在日常环境中估计认知状态；开发用于生理特征提取与认知负荷估计的信号处理和机器学习组件，并分析用户差异及实际感知挑战。',
 				fields: [
 					{
 						label: '贡献',
-						text: '面向可穿戴传感数据，开发用于生理特征提取与认知负荷估计的信号处理和机器学习组件。',
+						text: '面向传感数据，开发用于生理特征提取与认知负荷估计的信号处理和机器学习组件。',
 					},
 					{
 						label: '评测',
@@ -246,19 +246,19 @@ export const projectContentByLocale = {
 				keywords: ['统计机器学习', '信号处理', '跨参与者评测', '人本计算'],
 				diagram: 'breath',
 				diagramCopy: {
-					ariaLabel: '可穿戴呼吸感知简化研究流程图',
-					title: '可穿戴呼吸感知研究流程',
+					ariaLabel: '呼吸感知简化研究流程图',
+					title: '呼吸感知研究流程',
 					description:
-						'对可穿戴呼吸信号进行处理并提取生理特征，用于机器学习建模，再通过跨参与者评测与受控实验分析可靠性和鲁棒性，并实现实时感知原型。',
-					microphones: '可穿戴呼吸信号',
+						'对生理信号进行处理与特征提取，用于机器学习建模，再通过跨参与者评测与受控实验分析可靠性和鲁棒性，并实现实时感知原型。',
+					signals: '生理信号',
 					preprocessing: '信号处理',
 					preprocessingDetail: '信号调理 · 表征构建',
 					features: '生理特征',
-					featuresDetail: '呼吸模式 · 用户差异',
+					featuresDetail: '个体差异 · 环境因素',
 					model: '机器学习模型',
-					normalization: '跨参与者评测',
-					personalization: '受控实验',
-					personalizationDetail: '可靠性 · 鲁棒性',
+					evaluation: '跨参与者评测',
+					experiments: '受控实验',
+					experimentsDetail: '可靠性 · 鲁棒性',
 					output: '实时感知原型',
 				},
 			},

@@ -585,7 +585,7 @@
 	}
 
 	.diagram-node--features rect,
-	.diagram-node--normalization rect {
+	.diagram-node--evaluation rect {
 		stroke: var(--signal);
 	}
 
@@ -594,7 +594,7 @@
 		stroke: #7b9fd7;
 	}
 
-	.diagram-node--optional rect {
+	.diagram-node--experiments rect {
 		stroke: #b99065;
 	}
 
@@ -636,7 +636,7 @@
 	}
 
 	.flagship-card--breath:is(:hover, :focus-visible) .diagram-node--features rect,
-	.flagship-card--breath:is(:hover, :focus-visible) .diagram-node--normalization rect {
+	.flagship-card--breath:is(:hover, :focus-visible) .diagram-node--evaluation rect {
 		fill: #183a3b;
 	}
 
@@ -645,7 +645,7 @@
 		fill: #1a3154;
 	}
 
-	.flagship-card--breath:is(:hover, :focus-visible) .diagram-node--optional rect {
+	.flagship-card--breath:is(:hover, :focus-visible) .diagram-node--experiments rect {
 		fill: #362b22;
 	}
 
